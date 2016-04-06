@@ -79,3 +79,109 @@ import { AppComponent } from './app.component';
 boostrap(AppComponent);
 ```
 
+#### Structural Built-In Directives
+
+##### Angular1
+
+```html
+<ul>
+	<li ng-repeat="vehicle in vm.vehicles">
+		{{vehicle.name}}
+	</li>
+</ul>
+<div ng-if="vm.vehicles.length">
+	<h3>You have {{vm.vehicles.length}} vehicles</h3>
+</div>
+```
+
+##### Angular2
+
+*ngFor <-- Structural directive Indicate by the '*' prefix. Changes the structure.
+
+```html
+<ul>
+	<li *ngFor="#vehicle of vehicles">
+		{{vehicle.name}}
+	</li>
+</ul>
+<div *ngIf="vehicles.length">
+	<h3>You have {{vehicles.length}} vehicles</h3>
+</div>
+```
+
+#### Data Binding
+
++ Interpolation
++ One Way Binding
++ Event Binding
++ Two Way Binding
+
+##### Interpolation
+
+###### Angular1
+
+In angular1 we had to give a context and therefore we added the **vm.**.
+
+```html
+<h3>{{vm.story.name}}</h3>
+```
+
+###### Angular2
+
+```html
+<h3>{{story.name}}</h3>
+```
+
+##### One Way Binding
+
+###### Angular1 
+
+```html
+<h3 ng-bind="vm.story.name"></h3>
+```
+
+###### Angular2
+
+```html
+<h3 [innerText]="story.name"></h3>
+
+<div [style.color]="color"></div>
+```
+
+We can do this with Any html property.
+
+##### Event Binding
+
+###### Angular1 
+
+```html
+<button
+	ng-click="vm.log('click')"
+	ng-blur="vm.log('blur')">OK></button>
+```
+
+###### Angular2
+
+There are no directives, these are HTML EVENTS!
+
+```html
+<button
+	(click)="log('click')"
+	(blur)="log('blur')">OK></button>
+```
+
+##### Two Way Binding
+
+###### Angular1 
+
+```html
+<input ng-model="vm.story.name">
+```
+
+###### Angular2
+
+Banana in a Box
+
+```html
+<input [(ngModel)]="story.name">
+```
