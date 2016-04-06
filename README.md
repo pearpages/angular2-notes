@@ -205,6 +205,10 @@ Example
 
 #### Less Directives
 
+40+ Angular1 Built-In Directives that go away.
+
+Now we just bind to the html events for example.
+
 ```html
 <!-- Angular1 -->
 <div ng-style="vm.story ? {visibility: 'visible'} : {visibility: 'hidden'}"></div>
