@@ -185,3 +185,20 @@ Banana in a Box
 ```html
 <input [(ngModel)]="story.name">
 ```
+
+Example
+
+```html
+<div>
+	<h3>{{title}}</h3>
+	<div>
+		2 Way Binding
+		<input [(ngModel)]="story.name">
+	</div>
+	<p>{{story.name}}</p>
+	<div>
+		1 Way Binding
+		<input [value]="story.name">
+	</div>
+</div>
+```
