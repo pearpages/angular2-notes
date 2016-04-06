@@ -202,3 +202,27 @@ Example
 	</div>
 </div>
 ```
+
+#### Less Directives
+
+```html
+<!-- Angular1 -->
+<div ng-style="vm.story ? {visibility: 'visible'} : {visibility: 'hidden'}"></div>
+
+<!-- Angular2 -->
+<div [style.visibility]="story ? 'visible' : 'hidden'"></div>
+```
+
+```html
+<!-- Angular1 -->
+<img ng-src="{{vm.imagePath}}">
+<!-- Angular2 -->
+<img [src]="imagePath">
+```
+
+```html
+<!-- Angular1 -->
+<a ng-href="{{vm.link}}">{{vm.story}}</a>
+<!-- Angular2 -->
+<a [href]="link">{{story}}</a>
+```
