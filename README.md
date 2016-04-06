@@ -60,7 +60,7 @@ export class StoryComponent {
 }
 ```
 
-### Boostrapping Angular
+### Bootstrapping Angular
 
 #### Angular1
 
@@ -327,3 +327,9 @@ export class VehiclesComponent {
 	vehicles = this._vehicleService.getVehicles();
 }
 ```
+
+### Resources
+
+[Docs](https://angular.io/docs/)
+[CHEAT SHEET](https://angular.io/docs/ts/latest/cheatsheet.html)
+[Tour of Heroes TUTORIAL](https://angular.io/docs/ts/latest/tutorial/)
