@@ -17,11 +17,11 @@
 |Typescript|Yes|Yes|Yes|
 |Dart|Yes|Yes|No|
 
-### From Angular 1 to Angular 2
+### From Angular1 to Angular2
 
 #### Components
 
-##### Angular 1 Controller
+##### Angular1 Controller
 ```html
 <body ng-controller="MyController as vm">
 	<h3 ng-bind="vm.story.name"></h3>
@@ -42,7 +42,7 @@
 })();
 ```
 
-##### Angular 2 Component
+##### Angular2 Component
 
 ```html
 <my-story></my-story>
@@ -62,4 +62,20 @@ export class StoryComponent {
 }
 ```
 
+#### Boostrapping Angular
+
+##### Angular1
+
+```html
+<html ng-app="app">
+```
+
+##### Angular2
+
+```typescript
+import { bootstrap } from 'angular2/platform/browser';
+import { AppComponent } from './app.component';
+
+boostrap(AppComponent);
+```
 
