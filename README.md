@@ -330,6 +330,6 @@ export class VehiclesComponent {
 
 ### Resources
 
-[Docs](https://angular.io/docs/)
-[CHEAT SHEET](https://angular.io/docs/ts/latest/cheatsheet.html)
-[Tour of Heroes TUTORIAL](https://angular.io/docs/ts/latest/tutorial/)
++ [Docs](https://angular.io/docs/)
++ [CHEAT SHEET](https://angular.io/docs/ts/latest/cheatsheet.html)
++ [Tour of Heroes TUTORIAL](https://angular.io/docs/ts/latest/tutorial/)
