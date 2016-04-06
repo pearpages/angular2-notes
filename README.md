@@ -19,9 +19,9 @@
 
 ### From Angular 1 to Angular 2
 
-#### Controllers
+#### Components
 
-Angular 1
+##### Angular 1 Controller
 ```html
 <body ng-controller="MyController as vm">
 	<h3 ng-bind="vm.story.name"></h3>
@@ -42,7 +42,7 @@ Angular 1
 })();
 ```
 
-Angular 2
+##### Angular 2 Component
 
 ```html
 <my-story></my-story>
@@ -52,14 +52,14 @@ Angular 2
 import { Component } from 'angular2/core';
 
 @Component({
+// this is a decorator and adds functionality to the class
 	selector: 'my-story',
 	template: '<h3>{{story.name}}</h3>'
 })
 export class StoryComponent {
 	story = {id: 100, name: 'Super Cool Title'};
+	color = 'blue';
 }
 ```
 
-### Comparing Concepts from Angular 1 to 2
 
-### Resources
