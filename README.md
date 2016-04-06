@@ -22,6 +22,12 @@
 #### Controllers
 
 Angular 1
+```html
+<body ng-controller="MyController as vm">
+	<h3 ng-bind="vm.story.name"></h3>
+</body>
+```
+
 ```javascript
 (function() {
 	'use strict';
@@ -37,6 +43,10 @@ Angular 1
 ```
 
 Angular 2
+
+```html
+<my-story></my-story>
+```
 
 ```typescript
 import { Component } from 'angular2/core';
