@@ -513,3 +513,17 @@ export class CharacterComponent {
 <h3>We selected {{character.name}}</h3>
 ```
 
+### Metadata
+
+> We use Metadata to tell Angular about the objects we build.
+
+```typescript
+@Component({
+    slector: 'story-characters',
+    templateUrl: './app/characters.component.html',
+    styleUrls: ['./app/characters.component.css'],
+    directives: [CharacterDetailComponent],
+    providers: [HTTP_PROVIDERS, CharacterService]
+})
+```
+
