@@ -436,3 +436,80 @@ export class StoryComponent {
 <my-story></my-story>
 ```
 
+### Templates
+
+> Templates are mostly HTML, with a little help from Angular. They tell Angular how to render the Component.
+
++ directives
++ interpolation
++ nested components
+
+```html
+<ul>
+	<li *ngFor="#vehicle of vehicles">
+		{{vehicle.id}} {{vehicle.name}}
+	</li>
+</ul>
+
+<vehicle *ngIf="selectedVehicle" [vehicle]="selectedVehicle"></vehicle>
+```
+
+### Nested Components
+
+Here we can see how our *CharacterListComponent* is using our *CharacterComponent*.
+
+```typescript
+// character-list.component.ts
+import { Component } from 'angular2/core';
+import { Character } from './character';
+import { CharacterComponent } from './character.component';
+
+// directives: [CharacterComponent] <-- is very important because tells the nested components
+
+@Component({
+	selecctor: 'my-chacter-list',
+	templateUrl: 'app/character-list.component.html',
+	directives: [CharactercComponent]
+})
+export class CharacterListComponent {
+	selectedCharacter: Character;
+	characters = [
+		new Character(1, 'Han Solo'),
+		new Character(2, 'Luke Skywalker'),
+		new Character(3, 'BB-8'),
+		new Character(4, 'Rey')
+	];
+
+	select(character: Character) {
+		this.selectedCharacter = character;
+	}
+}
+```
+
+```html
+<!-- CharacterListComponent -->
+<ul>
+	<li *ngFor="#character of characters" (click)="select(character)">{{character.name}}</li>
+</ul>
+
+<my-character *ngIf="selectedCharacter" [character]="selectedCharacter"></my-character>
+```
+
+```typescript
+// character.component.ts
+import { Component, Input } from 'angular2/core';
+import { Character } from './character';
+
+@Component({
+	selector: 'my-character',
+	templateUrl: 'app/character.component.html'
+})
+export class CharacterComponent {
+	@Input() character: Character;
+}
+```
+
+```html
+<h3>We selected {{character.name}}</h3>
+```
+
