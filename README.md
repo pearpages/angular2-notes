@@ -527,3 +527,61 @@ export class CharacterComponent {
 })
 ```
 
+```typescript
+@Component({
+    selector: 'story-characters',
+    templateUrl: './app/characters.component.html',
+    styleUrls: ['./app/characters.component.css'],
+    directives: [CharacterComponent],
+    providers: [CharacterService]
+})
+export class CharactersComponent implements OnInit {
+    @Output() changed = new EventEmitter<Character>();
+    @Input() storyId: number;
+    characters: Character[];
+    selectedCharacter: Character;
+
+    constructor(private _characterService: CharacterService) {}
+
+    ngOnInit() {
+        this._characterService.getCharacters(this.storyId)
+            .subscribe(characters => this.characters = characters);
+    }
+
+    select(selectedCharacter: Character) {
+        this.selectedCharacter = selectedCharacter;
+        this.changed.emit(selectedCharacter);
+    }
+}
+```
+
+### Communication with Input and Output
+
+> Components allow input properties to flow in, while output events allow a child Component to communicate with a parent Component.
+
+```typescript
+export class CharactersComponent implements OnInit {
+    @Output() changed = new EventEmitter<Character>();
+    @Input() storyId: number;
+    characters: Character[];
+    selectedCharacter: Character;
+
+    select(selectedCharacter: Character) {
+        this.selectedCharacter = selectedCharacter;
+        this.changed.emit(selectedCharacter);
+    }
+}
+```
+
+```html
+<div>
+    <h1>Storyline Tracker</h1>
+    <h3>Component Demo</h3>
+    <story-characters [storyId]="7" (changed)=changed($event)></story-characters>
+</div>
+```
+
+### ViewChild
+
+> Use ViewChild when a parent Component needs to access a member of its child Component
+
