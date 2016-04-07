@@ -585,3 +585,61 @@ export class CharactersComponent implements OnInit {
 
 > Use ViewChild when a parent Component needs to access a member of its child Component
 
+Child
+
+```typescript
+export class FilterComponent {
+    @Output() changed: EventEmitter<string>;
+    filter: string;
+
+    clear() {
+        this.filter = '';
+    }
+    // ...
+}
+```
+
+Parent
+
+export class CharacterListComponent {
+    characters: Character[];
+    @ViewChild(Filtercomponent) filter: FilterComponent;
+
+    filtered = this.characters;
+
+    getCharacters() {
+        this._characterService.getCharacters()
+            .subscribe(characters => {
+                this.characters = this.filtered = characters;
+                this.filter.clear();
+                });
+    }
+
+    // ...
+}
+
+## Displaying Data
+
+### Data Binding
+
+> We use data binding to help coordinate communication between a Component and its Template.
+
++ Interpolation: {{expression}}
++ One Way Binding: [property] = "expression"
++ Event Binding: (event) = "statement"
++ Two Way Binding: [(ngModel)] = "property"
+
+Unidirectional data flow 
+
+### Interpolation
+
+One Way In.
+
+```html
+<h3>Vehicle: {{vehicle.name}}</h3>
+<div>
+    <img src="{{vehicle.imageUrl}}">
+    <a href="{{vehicle.wikiLink}}">Wiki</a>
+</div>
+```
+
