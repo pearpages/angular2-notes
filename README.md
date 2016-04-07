@@ -386,7 +386,7 @@ import { Vehicle } from './vehicle.service';
 @Component({
 	selector: 'story-vehicles',
 	templateUrl: './vehicles.component.html'
-});
+})
 ```
 
 // We define the component
@@ -412,5 +412,27 @@ import { bootstrap } from 'angular2/platform/browser';
 import { StoryComponent } from './story.component';
 
 bootstrap(StoryComponent);
-
 ```
+
+```typescript
+// story.component.ts
+
+@Component({
+	selector: 'my-story',
+	templateUrl: 'app/story.component.html'
+})
+export class StoryComponent {
+	name = 'Han Solo';
+}
+```
+
+```html
+<!-- story.component.html -->
+<h3>My name is {{name}}</h3>
+```
+
+```html
+<!-- index.html -->
+<my-story></my-story>
+```
+
