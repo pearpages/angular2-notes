@@ -333,3 +333,84 @@ export class VehiclesComponent {
 + [Docs](https://angular.io/docs/)
 + [CHEAT SHEET](https://angular.io/docs/ts/latest/cheatsheet.html)
 + [Tour of Heroes TUTORIAL](https://angular.io/docs/ts/latest/tutorial/)
+
+## Essentials
+
++ Modules
++ Components
++ Templates
++ Metadata
+
+### Modules
+
+> A module exports an asset such as a Service, Component, or a shared value.
+
+We use ES6 style modules with Angular2.
+
+#### Exporting Modules
+
+```typsecript
+// vehicle.service.ts
+
+export interface Vehicle {
+	id: number;
+	name: string;
+}
+
+export class VehicileService {
+	// ...
+}
+```
+
+#### Importing Modules
+
+Modules and their contents can be imported using the *import* keyword.
+
+We import the Vehicle and VehicleService using [destructuring](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+
+```typescript
+// vehicle.component.ts
+import { Component } from 'angular2/core';
+import { Vehicle, VehicleService } from '../vehicle.service';
+```
+
+### Components
+
+> A component contains application logic that controls a region of the user interface that we call view.
+
+```typescript
+import { Component } from 'angular2/core';
+import { Vehicle } from './vehicle.service';
+
+// @Component is Metadata, we describe the component
+@Component({
+	selector: 'story-vehicles',
+	templateUrl: './vehicles.component.html'
+});
+```
+
+// We define the component
+export class VehicleListComponent {
+	vehciles: Vehicle[];
+}
+
+#### Structure Example
+
+- App Component // main.ts
+  - Header Component
+  - Nav Component
+  - Content Component
+  - Footer Component
+
+```typescript
+// main.ts
+
+// Entry point for the app
+// This is where we start
+
+import { bootstrap } from 'angular2/platform/browser';
+import { StoryComponent } from './story.component';
+
+bootstrap(StoryComponent);
+
+```
