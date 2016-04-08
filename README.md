@@ -640,6 +640,36 @@ One Way In.
 <div>
     <img src="{{vehicle.imageUrl}}">
     <a href="{{vehicle.wikiLink}}">Wiki</a>
+    <!-- the quesetion mark makes it optional -->
+    My vehicle is <span>{{vehicle?.name}}</span>
 </div>
 ```
 
+### Property Binding
+
+> Using the [] to send values from the Component to the Template.
+
+We set properties and events of DOM elements, not attributes.
+
+We use the *Metadata* to tell the *Component* about the *Template*.
+
+```
+{{expression}}
+[target] = "expression"
+bind-target = "expression"
+```
+
+```html
+<img [src]="vehicle.imageUrl" > <!-- element property -->
+<vehicle-detail [vehicle]="currentVehicle"></vehicle-detail> <!-- component property -->
+<div [ngClass]= "{selected: isSelected}">X-Wing</div> <!-- directive property -->
+```
+
++ For attributes we use **attr**
++ Use dots for nested properties
+
+```html
+<button [attr.aria-label]>ok</button> <!-- attribute binding -->
+<div [class.isStopped="isStopped"]>Stopped</div> <!-- class property binding -->
+<button [style.color]="isStopped ? 'red' : 'blue'"></button> <!-- style property binding -->
+```
