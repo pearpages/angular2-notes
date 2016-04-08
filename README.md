@@ -805,3 +805,99 @@ exports class MyCustomPipe implements PipeTransform {
 	}
 }
 ```
+
+## Services, Dependency Injection, and Component Lifecycle Hooks
+
++ Services
++ Dependency Injection
++ Component Lifecycle Hooks
+
+### Services
+
+> A service provides anything our application needs. It often shares data or functions between other Angular features.
+
+In Angular1 we had:
+
+- Factories
+- Services
+- Providers
+- Constants
+- Values
+
+But in Angular2 we do all of them with **Class**.
+
+```typescript
+// vehicle.service.ts
+
+@Injectable()
+export class VehcileService {
+	getVehicles() {
+		return [
+			new Vehicle(10, 'abc3d'),
+			new Vehicle(12, 'ddasd2000'),
+			new Vehicle(14, 'XZY200')
+		];
+	}
+}
+```
+
+```typescript
+import { Injectable } from 'angular2/core';
+
+// the import from another file would be:
+// import { Character } from './character.service'
+export class Character {
+	constructor(public id: number, public name: string, public color: string);
+}
+
+@Injectable()
+export class CharacterService {
+	getCharacters() {
+		return [
+			new Character(10, 'abc3d'),
+			new Character(12, 'ddasd2000'),
+			new Character(14, 'XZY200')
+		];
+	}
+}
+```
+
+### Dependency Injection
+
+> Dependency Injection is how we provide an instance of a class to another Angular feature
+
+Service is injected into the Component's constructor
+
+```typescript
+// vehicle.component.ts
+import { VehicleService } from './vehicle.service';
+
+@Component({
+	selector: 'my-vehicles',
+	templateUrl: 'app/vehicles.component.html',
+	providers: [VehicleService]
+})
+export class VehicleListComponent {
+	vehicles: Vehicle[];
+
+	constructor(private _vehicleService: VehicleService) {
+		this._vehicleService.getVehicles()
+			.subscribe(vehicles => this.vehicles = vehicles);
+	}
+}
+```
+
+```typescript
+@Injectable()
+export class VehicleService {
+	constructor(private _http: Http) {}
+
+	getVehicles() {
+		return this._http.get(vehicleUrl)
+			.map((response:Response) => <Vehicle[]>response.json().data);
+	}
+}
+```
+
+Register the service with the injector at the parent that contains all components that require the service. Otherwise you will get more than one instance!
+
