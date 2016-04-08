@@ -901,3 +901,10 @@ export class VehicleService {
 
 Register the service with the injector at the parent that contains all components that require the service. Otherwise you will get more than one instance!
 
+### Component Lifecycle Hooks
+
+> Lifecycle Hooks allow us to tap into specific moments in the application lifecycle to perform logic.
+
+```typescript
+
+```
