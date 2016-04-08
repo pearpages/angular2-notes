@@ -774,5 +774,34 @@ bindon-NgModel="expression"
 </div>
 ```
 
-### Pipes
+### Pipes (filters in  Angular1)
 
+> Pipes allow us to transform data for display in a Template.
+
+```html
+<p>{{character.name | uppercase}}</p>
+<p>{{character.name | lowercase}}</p>
+<p>{{eventDate | date: 'medium'}}</p>
+<p>{{eventDate | date: 'yMMMd'}}</p>
+<p>{{price | currency}}</p>
+<!-- {minIntegerDigits}.{minFractionDigits}-{maxFractionDigits} -->
+<p>{{value | perecent: '1.1-1'}}</p>
+<p>{{value | number: '1.1-3'}}</p>
+```
+
+#### Async Pipe
+
+Using pipes we can transform values before rendering them.
+
+> Subscribes to a Promise or an Observable, returning the latest value emitted.
+
+```typescript
+import { Pipe, PipeTransform } from 'angular2/core';
+
+@Pipe({name: 'myCustomPipe'})
+exports class MyCustomPipe implements PipeTransform {
+	transform(value: string, args: any[]) {
+		return // transformed value
+	}
+}
+```
