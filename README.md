@@ -673,3 +673,106 @@ bind-target = "expression"
 <div [class.isStopped="isStopped"]>Stopped</div> <!-- class property binding -->
 <button [style.color]="isStopped ? 'red' : 'blue'"></button> <!-- style property binding -->
 ```
+
+### Event Binding
+
+```
+(target) = "statement"
+on-target = "statement"
+```
+
+```html
+<button (click)="save()">Save</button> <!-- element event -->
+<vehicle-detail (changed)="vehicleChanged()"></vehicle-detail> <!-- component event -->
+```
+
+One way to the Component
+
+```html
+<input [value]="vehicle.name"
+(input)="vehicle.name=$event.target.value">
+<!-- (input): Input change event-->
+<!-- $event: is the event message -->
+```
+
+#### Custom Events
+
++ **EventEmitter** defines a new event
++ Fire its **emit** method to raise event with data
+
+```typescript
+@Input() vehicle: Vehicle;
+@Output() onChanged: new EventEmitter<Vehicle>();
+changed() { this.onChanged.emit(this.vehicle); }
+```
+
+```html
+<button (click)="select(character.name)"></button>
+```
+
+```typescript
+select(name: string) {
+	let msg = `You selected ${name}`;
+	console.log(msg);
+	this.isSelected = !this.isSelected;
+}
+```
+
+```html
+<input type="text" id="nametext" class="my-input" 
+[value]="character.name" 
+(input)="character.name=$event.target.value">
+
+<img [src]="character.imageUrl" style="width:50px" 	
+ [style.background]="color"
+ (mouseenter)="color = '#CCC'" 
+ (mouseleave)="color = '#EEE'">
+```
+
+### Two Way Binding
+
+> [()] sends a value from Component to Template, and sends value changes in the Template to the Component.
+
+```
+[(ngModel)]="expression"
+bindon-NgModel="expression"
+```
+
+```html
+<input [(ngModel)]="vehicle.name"> <!-- built-in directive -->
+```
+
+### Built-in Directives
+
+> When Angular renders templates, it transforms the DOM according to instructions from Directives.
+
+|Angular1|Angular2|Angular2 example|Alternative way|
+|:--|:--|:--|:--|
+|ng-class|ngClass|[ngClass]="{active: isActive, color: myColor}"||
+|ng-style|ngStyle|[ngStyle]="{color:colorPreference}"|[style.color]="colorPreference"|
+|ng-repeat|*ngFor|||
+|ng-if|*ngIf|||
+|ng-switch|*ngSwitch|||
+
+```html
+<div [ngStyle]="setStyles()">{{vehicle.name}}</div> <!-- ngStyle is better for setting multiple styles -->
+<div [ngClass]="setClasses()">{{vehicle.name}}</div> <!-- the same for multiple classes -->
+```
+
+**ngIf** conditionally removes elements from the DOM.
+
+```html
+<div *ngIf="currentVehicle">
+	You selected {{currentVehicle.name}}
+</div>
+```
+
+```html
+<!-- # declares a local variable -->
+<div *ngFor="#story of stories, #i=index">
+ {{i}}. {{story.name}}
+</div>
+```
+
+### Pipes
+
