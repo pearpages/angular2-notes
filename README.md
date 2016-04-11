@@ -943,3 +943,88 @@ export class CharactersComponent implements OnInit {
 + ngAfterViewInit
 + ngOnDestroy
 
+#### Example
+
+```html
+<ul>
+    <li *ngFor="#character of characters" (click)="select(character)">
+    {{character.name}}
+    </li>
+</ul>
+
+<button (click)="clear()">clear</button>
+<ul class="messages">
+	<li *ngFor="#msg of messages">{{msg}}</li>
+</ul>
+
+<my-character *ngIf="selectedCharacter" (onLifecycleHookFire)="log($event)" [character]="selectedCharacter"></my-character>
+```
+
+```typescript
+// character-list.component.ts
+
+import { Component, OnInit } from 'angular2/core';
+import { Character, CharacterService } from './character.service';
+import { CharacterComponent} from './character.component';
+
+@Component({
+	selector: 'my-character-list',
+	templateUrl: 'app/character-list.component.html',
+	styles: ['li {cursor: pointer;}'],
+	directives: [CharacterComponent]
+})
+export class CharacterListComponent implements OnInit {
+	selectedCharacter: Character;
+	characters: Character[] = [];
+	messages: string[] = [];
+
+	constructor(private _characterService: CharacterService) {}
+
+	ngOnInit(){
+		this.chracters = this._characterService.getCharacters();
+	}
+
+	select(character: Character) {
+		this.slectedCharacter = character;
+	}
+
+	clear() {
+		this.selectedCharacter = null;
+	}
+
+	log(msg: string){
+		this.messages.splice(0,0,msg);
+		console.log(msg);
+	}
+}
+```
+
+```typescript
+import { Component, EventEmitter, Input, Output, OnChanges, OnInit, AfterViewInit, OnDestgory} from 'angular2/core';
+import { Character } from './character.service';
+```
+
+@Component({
+	selector: 'my-character',
+	templateUrl: 'app/character.component.html'
+})
+export class CharacterComponent implements OnChanges, OnInit, AfterViewInit, OnDestroy {
+	@Input() character: Character;
+	@Output() onLifecycleHookFire = new EventEmitter<string>();
+
+	ngOnChanges() {
+		this.onLifecycleHookFire.emit(`ngOnChanges for ${this.character.name}`);
+	}
+
+	ngOnInit() {
+		this.onLifecycleHookFire.emit(`ngOnInit for ${this.character.name}`);
+	}
+
+	ngAfterViewInit() {
+		this.onLifecycleHookFire.emit(`ngAFterViewInit for ${this.character.name}`);
+	}
+
+	ngOnDestroy() {
+		console.log(`ngOnDestroy for ${this.character.name}`);
+	}
+}
