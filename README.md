@@ -906,5 +906,40 @@ Register the service with the injector at the parent that contains all component
 > Lifecycle Hooks allow us to tap into specific moments in the application lifecycle to perform logic.
 
 ```typescript
+@Component({
+    selector: 'story-characters',
+    templateUrl: './app/characters.component.html',
+    styleUrls: ['./app/characters.component.css'],
+    directives: [CharacterDetailComponent],
+    providers: [HTTP_PROVIDERS,CharacterService]
+})
+// Implements the lifecycle hook's interface OnInit
+export class CharactersComponent implements OnInit {
+    @Output() changed = new EventEmitter<Character>();
+    @Input() storyId: number;
+    characters: Character[];
+    selectedCharacter: Character;
 
+    constructor(private _characterService: CharacterService) {}
+
+    // When the Component initializes, the ngOnInit function is executed
+    ngOnInit() {
+        this.characters = this._characterService.getCharacters(this.storyId);
+    }
+
+    select(selectedCharacter: Character) {
+        this.selectedCharacter = selectedCharacter;
+        this.changed.emit(selectedCharacter);
+    }
+}
 ```
+
+#### Component Lifefycle
+
+> The Lifecycle Interface helps enforce the valid use of a hook.
+
++ ngOnChanges
++ ngOnInit (time of creation)
++ ngAfterViewInit
++ ngOnDestroy
+

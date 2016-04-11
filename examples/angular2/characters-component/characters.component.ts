@@ -2,9 +2,10 @@
     selector: 'story-characters',
     templateUrl: './app/characters.component.html',
     styleUrls: ['./app/characters.component.css'],
-    directives: [CharacterComponent],
-    providers: [CharacterService]
+    directives: [CharacterDetailComponent],
+    providers: [HTTP_PROVIDERS,CharacterService]
 })
+// Implements the lifecycle hook's interface OnInit
 export class CharactersComponent implements OnInit {
     @Output() changed = new EventEmitter<Character>();
     @Input() storyId: number;
@@ -13,9 +14,9 @@ export class CharactersComponent implements OnInit {
 
     constructor(private _characterService: CharacterService) {}
 
+    // When the Component initializes, the ngOnInit function is executed
     ngOnInit() {
-        this._characterService.getCharacters(this.storyId)
-            .subscribe(characters => this.characters = characters);
+        this.characters = this._characterService.getCharacters(this.storyId);
     }
 
     select(selectedCharacter: Character) {
