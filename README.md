@@ -1235,5 +1235,55 @@ We sometimes pass error messages to the consumer for presentation.
 
 > The Async Pipe receives a Promise or Observable as input and subscribes to the input, eventually emitting the value(s) as changes arrive.
 
++ Component is simplified
++ Grab the **Observable** and set it to the property
 
+```typescript
+// vehicle-list.component.ts
+
+vehicles: Observable<Vehicle[]>; // property becomes observable
+
+getHeroes() {
+	this.vehicles = this._vehicleService.getVehicles(); // set the observable from the Service
+}
+```
+
+```html
+<ul>
+	<li *ngFor="#vehicle of vehicles | async">
+		{{ vehicle.name }}
+	</li>
+</ul>
+```
+
+### Promises
+
+```typescript
+getVehciles(value? : stgring) {
+	return this._http.get('api/vehcles.json')
+		.map((response: Response) => <Vehicle[]>response.json().data)
+		.toPromise()
+		.catch(this.handleError);
+}
+```
+
+```typescript
+export class VehicleListComponent {
+	errorMessage: string;
+	vehicles: Promise<Vehicle[]>; // <--
+	selectedVehicle: Vehicle;
+
+	constructor(private _vehcileServie: vehicleService) {}
+
+	// ...
+}
+```
+
+```html
+<ul>
+	<li *ngFor="#vehicle of vehicles | async" (click)="select(vehicle)">{{vehicle.name}}</li>
+</ul>
+```
+
+## Routing
 
