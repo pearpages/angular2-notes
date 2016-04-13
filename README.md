@@ -1323,9 +1323,43 @@ Router
 
 ### Routing in 4 steps
 
-+ ROUTER_PROVIDERS
-+ @RouteConfig
-+ <router-outlet>
-+ [routerLink]
+1. ROUTER_PROVIDERS
+2. @RouteConfig
+3. <router-outlet>
+4. [routerLink]
 
+#### RouteConfig
 
++ **@RouteConfig** accepts an array of route definitions
++ **path** maps the address
++ **component** maps to the Component and its Template
+
+```typescript
+@RouteConfig([
+// the name of the route must be PascalCase 
+// Default route
+{ path: '/', name: 'Vehicles', component: VehicleListComponent, useAsDefault: true},
+// :id is a routing parameter
+{ path: '/list/:id', name: 'Vehicles', component: VehicleListComponent },
+{ path: '/:id', name: 'Vehicle', component: VehicleComponent }
+])
+export class VehiclesComponent {}
+```
+
+```typescript
+@Component({
+	selector: 'story-vehicles',
+	template: `<router-outlet></router-outlet>`,
+	directives: [ROUTER_DIRECTIVES],
+	providers: [VehicleService]
+})
+```
+
+```html
+<nav>
+	<a [routerLink]="['Dashboard']">Dashboard</a>
+	<a [routerLink]="['Characters']">Characters</a>
+	<a [routerLink]="['Vehicles']">Vehicles</a>
+	<router-outlet></router-outlet>
+</nav>
+```
