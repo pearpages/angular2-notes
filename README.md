@@ -1139,3 +1139,75 @@ getHeroes() {
 		);
 }
 ```
+
+### Adding Exception Handling
+
+```typescript
+import { Injectable } from 'angular2/core';
+import { Http, Response } from 'angular2'/http';
+import { Observable } from 'rxjs/Rx';
+
+export class Vehicle {
+	constructor(public id: number, public name: string) {}
+
+@Injectable()
+export class VehicleService {
+	constructor(private _http: Http) {}
+
+	getVehicles() {
+		return this._http.get('api/vehicles.json')
+		.map((response: Response) => <Vehcile[]>response.json().data)
+		.do(data => console.log.(data))
+		.catch(this.handleError);
+	}
+
+	handleError(error: Response) {
+		console.error(error);
+		return Observable.throw(error.json().error || 'Server error');
+	}
+}
+}
+}
+```
+
+```typescript
+import { Component } from 'angular2/core';
+import { Vehicle, VehicleService } from './vehcile.service';
+import { VehicleComponent } form './vehicle.component';
+
+@Component({
+	selector: 'my-vehicle-list',
+	templateUrl: 'app/vehicle-list.component.html',
+	styles: ['li {cursoir: pointer;} .error {color:red;}'],
+	directives: [vehicleComponent]
+})
+export class VehicleListComponent {
+	errorMessage: string;
+	vehicles: Vehicle[]:
+	selectedVehicle: Vehicle;
+
+	constructor(private _vehicleService: VehicleService) {}
+
+	ngOnInit() { this.getHeroes(); }
+
+	getHeroes() {
+		this._vehicleService.getVehicles()
+			.subcribe(
+				vehicles => this.vehicles = vehicles,
+				error => this.errorMessage = <any>error
+			);
+	}
+
+	select(vehicle: Vehicle) {
+		this.selectedVehicle = vehicle;
+	}
+}
+```
+
+### RxJs
+
+[ReactiveX](http://reactivex.io/)
+
+> RxJs (Reactive Js) implements the asynchronous observable pattern and is widely used in Angular 2.
+
+
