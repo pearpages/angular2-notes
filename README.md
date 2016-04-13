@@ -1325,7 +1325,7 @@ Router
 
 1. ROUTER_PROVIDERS
 2. @RouteConfig
-3. <router-outlet>
+3. ```<router-outlet>```
 4. [routerLink]
 
 #### RouteConfig
