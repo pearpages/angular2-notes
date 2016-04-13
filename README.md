@@ -1210,4 +1210,30 @@ export class VehicleListComponent {
 
 > RxJs (Reactive Js) implements the asynchronous observable pattern and is widely used in Angular 2.
 
+```typescript
+import 'rxjs/Rx';
+// for production, only import the modules you require
+```
+
+We do not return the response. Service does the dirty work. The consumers simply get the data.
+
+```typescript
+// vehicle.service.ts
+return this._http.get('api/vehicles')
+	.map((response:: Response) => 
+		// json() is defined by the http spec
+		// data is what we defined on the server
+		<Vehicle[]>response.json().data
+	)
+	// catch errors
+	.catch(this.handleError);
+```
+
+We sometimes pass error messages to the consumer for presentation.
+
+### Async Pipe
+
+> The Async Pipe receives a Promise or Observable as input and subscribes to the input, eventually emitting the value(s) as changes arrive.
+
+
 
