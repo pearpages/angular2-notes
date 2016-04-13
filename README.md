@@ -1028,3 +1028,70 @@ export class CharacterComponent implements OnChanges, OnInit, AfterViewInit, OnD
 		console.log(`ngOnDestroy for ${this.character.name}`);
 	}
 }
+
+## Data with Http
+
++ HTTTP
++ Observables and Subscriptions
++ Async Pipe
++ Promises
+
+### HTTP
+
+> We use HTTP to get and save data with Promises or Observables. We isolate the HTTP calls in a shared Service.
+
+```javascript
+// angular1
+this.getVehicles = function() {
+	return $http.get('api/vehicles')
+		.then(function (response) {
+			return response.data.data;
+		})
+		.catch(handleError);
+}
+```
+
+```typescript
+// angular2
+getVehicles() {
+	return this._http.get('api/vehicles')
+		.map((response: Response) =>
+			<Vehicle[]>response.json().data
+		)
+		.catch(this.handleError);
+}
+```
+
+### HTTP script
+
++ htpp is in a seperate module
++ add th reference to **http.dev.js**
+
+```html
+<!-- angular2 -->
+<script src="../node/modules/angular2/bundles/http.dev.js"></script>
+```
+
+```typescript
+import { Component } from 'angular2/core';
+//  Located in module angular2/http
+import { HTTP_PROVIDERS } from 'angular2/http';
+
+import { Vehicle, VehicleService } from './vehicle/service';
+import { VehicleListComponent } from './vehicle-list.component';
+
+@Component({
+	selector: 'my-app',
+	template: '<my-vehicle-list></my-vehicle-list>',
+	directives: [VehcileListComponent],
+	providers: [
+		// declaring the providers
+		HTTP_PROVIDERS,
+		VehicleService
+	]
+})
+export class AppComponent {}
+```
+
+**HTTP_PROVIDERS** is an array of service providers for HTTP.
+
