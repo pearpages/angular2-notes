@@ -1287,3 +1287,45 @@ export class VehicleListComponent {
 
 ## Routing
 
+- Route Configuration
+- Router Outlets
+- Router Links
+- Route Parameters
+- Child Routers
+
+### Intro
+
+> Routing allows our application to navigate between different Components, passing parameters where needed
+
+```typescript
+@RouteConbfig({})
+```
+
+```html
+<router-outlet></router-outlet>
+
+<a [routerLink]="linkParameters"></a>
+```
+
+```typescript
+RouteParams
+// $routeParams in angular1
+```
+
+```tyescript
+Router
+// $router in angular1
+```
+
+```html
+<script src="node_modules/angular2/bundles/router.dv.js"></script>
+```
+
+### Routing in 4 steps
+
++ ROUTER_PROVIDERS
++ @RouteConfig
++ <router-outlet>
++ [routerLink]
+
+
