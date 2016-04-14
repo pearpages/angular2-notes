@@ -1484,3 +1484,22 @@ export class VehicleComponent implements OnInit {
 	</div>
 </article>
 ```
+
+### Child Routers
+
+> A Component may define routes for other Components. This creates a series of hierachical child routes.
+
+**@RouteConfig** accepts an array of route definitions.
+
+This indicates a *child route*.
+```/...```
+
+The router can help us with lazyloading the modules.
+
+```typescript
+@RouteConfig([
+	{ path: '/dashboard', name: 'Dashbaord', component: DashboardComponent, useAsDefault: true},
+	{ path: '/characters/...', name: 'Characters', component: CharactersComponent },
+	{ path: '/vehicles/...', name: 'Vehicles', component: VehiclesComponent }
+])
+```
