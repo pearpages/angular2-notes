@@ -1370,7 +1370,8 @@ export class VehiclesComponent {}
 // app.component.ts
 
 import { Component } from 'angular2/core';
-import { HTTP_PROVIDERS } from 'angular2/http';
+import { HTTP_PROVIDERS, @RouteConfig } from 'angular2/http';
+import { ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router'; // <--
 import 'rxjs/Rx'; // load the full rxjs
 
 import { CharacterListComponent } from './characters/character-list.component';
@@ -1387,11 +1388,88 @@ import { CONFIG } from './config';
 		nav ul {list-style-type: none;}
 		nav ul li {padding: 4px; cursor: pointer; display: inline-block}
 	`],
+	directives: [ROUTER_DIRECTIVES],
 	providers: [
 		HTTP_PROVIDERS,
+		ROUTER_PROVIDERS, // <--
 		CharacterService,
 		VehicleService
 	]
 })
+@RouteConfig([ // <-- 
+	{path: '/characters', name: 'Characters', component: CharacterListComponent, useAsDefault: true},
+	{path: '/vehicles', name: 'Vehciles', component: VehicleListComponent},
+	{path: '/vehicle/:id', name: 'Vehicle', component: VehicleComponent}
+])
 export class AppComponent{}
+```
+
+```html
+<div>
+	<header>
+		<h1>Title</h1>
+		<h3>Subtitle</h3>
+		<nav>
+			<ul>
+				<li><a [routerLink]="['Characters']">Characters</a></li>
+				<li><a [routerLink]="['Vehicles']">Vehicles</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			<router-outlet></router-outlet>
+		</section>
+	</main>
+</div>
+```
+
+```typsecript
+// vehicle.component.ts
+
+import { Component, Input, OnInit } from 'angular2/core';
+
+@Component({
+	selector: 'story-vehicle',
+	templateUrl: 'app/vehicles/vehicle.component.html'
+})
+export class VehicleComponent implements OnInit {
+	@Input() vehicle: Vehicle;
+
+	constructor() {}
+
+	ngOnInit() {}
+}
+```
+
+```html
+<article>
+	<h4>My Vehicles</h4>
+
+	<ul class="vehicles">
+		<li *ngFor="#vehicle of vehicles">
+			<a href="" [routerLink]="['Vehicle', {id: vehicle.id}]">
+			{{vehicle.id}}. {{vehicle.name}}
+			</a>
+		</li>
+	</ul>
+</article>
+```
+
+```html
+<article>
+	<div *ngIf="vehicle">
+		<h4>{{vehicle.name}} details</h4>
+	</div>
+
+	<div>
+		<label for="nametext">Name</label>
+		<input type="text" id="nametext" [(ngModel)]="vehicle.name">
+	</div>
+
+	<div>
+		<label for="typetext">Type</label>
+		<input type="text" id="typetext" [(ngModel)]="vehicle.type">
+	</div>
+</article>
 ```
