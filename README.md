@@ -6,6 +6,12 @@
 
 > We can use ES5, ES2015, or TypeScript to write Angular 2.
 
+## Resources
+
++ [Docs](https://angular.io/docs/)
++ [CHEAT SHEET](https://angular.io/docs/ts/latest/cheatsheet.html)
++ [Tour of Heroes TUTORIAL](https://angular.io/docs/ts/latest/tutorial/)
+
 ## Architecture
 
 ### Language Choices
@@ -328,11 +334,6 @@ export class VehiclesComponent {
 }
 ```
 
-### Resources
-
-+ [Docs](https://angular.io/docs/)
-+ [CHEAT SHEET](https://angular.io/docs/ts/latest/cheatsheet.html)
-+ [Tour of Heroes TUTORIAL](https://angular.io/docs/ts/latest/tutorial/)
 
 ## Essentials
 
