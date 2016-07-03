@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { VehicleService } from '../vehicle-service';
 
 @Component({
   moduleId: module.id,
   selector: 'vehicles',
   templateUrl: 'vehicles.component.html',
-  styleUrls: ['vehicles.component.css']
+  styleUrls: ['vehicles.component.css'],
+  providers: [VehicleService]
 })
 export class VehiclesComponent implements OnInit {
 
   vehicles: any[];
 
-  constructor() {}
+  constructor(private vehicleService: VehicleService) {}
 
   ngOnInit() {
-    this.vehicles = [
-      {id: 1,name:'X-Wing Fighter'},
-      {id: 2,name:'Tie Fighter'},
-      {id: 3,name:'Y-Wing Fighter'}
-    ];
+    this.vehicles = this.vehicleService.getVehicles();
   }
 
 }
