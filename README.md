@@ -8,11 +8,12 @@
 
 ## Resources
 
++ [code along](http://jpapa.me/a2firstlook)
 + [Docs](https://angular.io/docs/)
 + [CHEAT SHEET](https://angular.io/docs/ts/latest/cheatsheet.html)
 + [Tour of Heroes TUTORIAL](https://angular.io/docs/ts/latest/tutorial/)
 
-## Architecture
+## [Architecture](./docs/architecture.md)
 
 ### Language Choices
 
@@ -58,7 +59,9 @@ import { Component } from 'angular2/core';
 @Component({
 // this is a decorator and adds functionality to the class
 	selector: 'my-story',
-	template: '<h3>{{story.name}}</h3>'
+	template: `<h3>{{story.name}}</h3>
+	{{story | json}}
+	`
 })
 export class StoryComponent {
 	story = {id: 100, name: 'Super Cool Title'};
@@ -101,6 +104,7 @@ boostrap(AppComponent);
 #### Angular2
 
 *ngFor <-- Structural directive Indicate by the '*' prefix. Changes the structure.
+*ngIf <-- Not going to be added to the DOM
 
 ```html
 <ul>
@@ -115,10 +119,10 @@ boostrap(AppComponent);
 
 ### Data Binding
 
-+ Interpolation
-+ One Way Binding
-+ Event Binding
-+ Two Way Binding
++ Interpolation <-- ```<h3>{{story.name}}</h3>```
++ One Way Binding <-- ```<h3 [innerText]="story.name"></h3>```
++ Event Binding --> ```<button (click)="log('click')"></button>```
++ Two Way Binding <-- ```<input [(ngModel)]="story.name">```
 
 #### Interpolation
 
