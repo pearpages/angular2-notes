@@ -69,6 +69,8 @@ export class VehicleListComponent {
 - Content Component
 - Footer Component
 
+*main.ts* file is the entry point of the app and where we do the bootstrap.
+
 ```typescript
 // main.ts
 
@@ -113,7 +115,7 @@ export class StoryComponent {
 
 ```html
 <ul>
-	<li *ngFor="#vehicle of vehicles">
+	<li *ngFor="let vehicle of vehicles">
 		{{vehicle.id}} {{vehicle.name}}
 	</li>
 </ul>
