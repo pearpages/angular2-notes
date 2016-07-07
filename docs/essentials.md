@@ -186,6 +186,8 @@ export class CharacterComponent {
 
 > We use Metadata to tell Angular about the objects we build.
 
+Components are related to each other with a tree shape. That's why we don't need to declare **providers** more than once in the providers sections if all the rest of components are just sons. Otherwise we will have more than once instance.
+
 ```typescript
 @Component({
     slector: 'story-characters',
@@ -195,6 +197,10 @@ export class CharacterComponent {
     providers: [HTTP_PROVIDERS, CharacterService]
 })
 ```
+
+We inject in the constructor.
+
+In the Output we can comunicate with the parent host through an EventEmitter.
 
 ```typescript
 @Component({
@@ -254,7 +260,7 @@ export class CharactersComponent implements OnInit {
 
 > Use ViewChild when a parent Component needs to access a member of its child Component
 
-Child
+#### Child
 
 ```typescript
 export class FilterComponent {
@@ -268,8 +274,11 @@ export class FilterComponent {
 }
 ```
 
-Parent
+#### Parent
 
+So we access *FilterComponent* *filter* method.
+
+```typescript
 export class CharacterListComponent {
     characters: Character[];
     @ViewChild(Filtercomponent) filter: FilterComponent;
@@ -286,3 +295,4 @@ export class CharacterListComponent {
 
     // ...
 }
+```
