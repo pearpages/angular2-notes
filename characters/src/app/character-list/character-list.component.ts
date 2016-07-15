@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Person } from '../person';
 import { CharacterComponent } from '../character/character.component';
+import { CharactersService } from '../characters.service';
 
 @Component({
   moduleId: module.id,
@@ -11,24 +12,19 @@ import { CharacterComponent } from '../character/character.component';
 })
 export class CharacterListComponent implements OnInit {
 
+  @Output() changed = new EventEmitter<Person>();
   selectedCharacter: Person;
-  characters;
 
-  constructor() {
-    console.log(Person);
-    this.characters = [
-      new Person(1, 'Han Solo'),
-      new Person(2, 'LukeSkywalker'),
-      new Person(3, 'BB-8'),
-      new Person(4, 'Rey')
-    ];
-  }
+  constructor(private characters: CharactersService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
 
+  getCharacters() {
+    return this.characters.get();
   }
 
   select(character: Person) {
     this.selectedCharacter = character;
+    this.changed.emit(character);
   }
 }
