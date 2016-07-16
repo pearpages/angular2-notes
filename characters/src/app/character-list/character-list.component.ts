@@ -24,6 +24,10 @@ export class CharacterListComponent implements OnInit {
     return this.characters.get(this.textToFilter);
   }
 
+  resetFilter() {
+    this.textToFilter = '';
+  }
+
   select(character: Person) {
     this.selectedCharacter = character;
     this.changed.emit(character);

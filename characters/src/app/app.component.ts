@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharactersService } from './characters.service';
@@ -14,7 +14,13 @@ import { CharactersService } from './characters.service';
 export class AppComponent {
   title = 'app works!';
 
+  @ViewChild(CharacterListComponent) list: CharacterListComponent;
+
   catchEvent(event) {
     console.log(event);
+  }
+
+  resetCharacterList() {
+    this.list.resetFilter();
   }
 }

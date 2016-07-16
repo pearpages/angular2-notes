@@ -2,6 +2,16 @@
   {{title}}
 </h1>
 
-<vehicles></vehicles>
+<div [style.border]="'1px solid black'">
+  <vehicles></vehicles>
+</div>
 
-<character-list (changed)="catchEvent($event)"></character-list>
+
+<button (click)="resetCharacterList()">Reset Child Filter</button>
+
+
+<div [style.border]="'1px solid black'">
+  <h4>Character List</h4>
+  <character-list (changed)="catchEvent($event)"></character-list>  
+</div>
+
