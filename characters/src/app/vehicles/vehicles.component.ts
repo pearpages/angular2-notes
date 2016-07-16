@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleService } from '../vehicle-service';
+import {Observable} from 'rxjs/Rx';
+import { VehicleService } from '../vehicle.service';
 
 @Component({
   moduleId: module.id,
@@ -10,12 +11,17 @@ import { VehicleService } from '../vehicle-service';
 })
 export class VehiclesComponent implements OnInit {
 
-  vehicles: any[];
+  vehicles;
+  errorMessage;
 
   constructor(private vehicleService: VehicleService) {}
 
   ngOnInit() {
-    this.vehicles = this.vehicleService.getVehicles();
+    this.vehicleService.getVehicles()
+      .subscribe(
+        vehicles => this.vehicles = vehicles,
+        error => this.errorMessage = <any>error
+      );
   }
 
 }

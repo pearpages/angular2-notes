@@ -6,7 +6,7 @@ import {
   expect, it, xit,
   async, inject
 } from '@angular/core/testing';
-import {VehicleService} from './vehicle-service';
+import {VehicleService} from './vehicle.service';
 /*
 describe('VehicleService', () => {
   it('should create an instance', () => {
