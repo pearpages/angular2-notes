@@ -16,6 +16,9 @@ export class VehicleService {
           console.log(response);
           console.log(response.json());
           return response.json()
+        })
+        .catch((error:Response) => {
+          return Observable.throw(error.json() || 'Server error');
         });
        
     }

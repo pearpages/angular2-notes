@@ -11,7 +11,7 @@ import { VehicleService } from '../vehicle.service';
 })
 export class VehiclesComponent implements OnInit {
 
-  vehicles;
+  vehicles: any[] = [];
   errorMessage;
 
   constructor(private vehicleService: VehicleService) {}
