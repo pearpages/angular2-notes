@@ -13,6 +13,7 @@ import { CharactersService } from '../characters.service';
 export class CharacterListComponent implements OnInit {
 
   @Output() changed = new EventEmitter<Person>();
+  textToFilter: string = '';
   selectedCharacter: Person;
 
   constructor(private characters: CharactersService) { }
@@ -20,7 +21,7 @@ export class CharacterListComponent implements OnInit {
   ngOnInit() { }
 
   getCharacters() {
-    return this.characters.get();
+    return this.characters.get(this.textToFilter);
   }
 
   select(character: Person) {

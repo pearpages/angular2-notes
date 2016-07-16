@@ -1,3 +1,5 @@
+<input type="text" [(ngModel)]="textToFilter" />
+
 <ul>
   <li *ngFor="let character of getCharacters()" (click)="select(character)">{{character.name}}</li>
 </ul>

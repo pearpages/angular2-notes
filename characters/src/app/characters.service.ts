@@ -4,7 +4,7 @@ import { Person } from './person';
 @Injectable()
 export class CharactersService {
 
-  private characters;
+  private characters: Person[];
 
   constructor() {
     this.characters = [
@@ -15,7 +15,8 @@ export class CharactersService {
     ];
   }
 
-  get (): Person[] {
-    return this.characters;
+  get (text: string = null): Person[] {
+    let filter = text.toLowerCase();
+    return (filter === null || filter.trim() === '' ) ? this.characters : this.characters.filter((c) => c.name.toLowerCase().includes(filter) );
   }
 }

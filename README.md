@@ -17,11 +17,7 @@
 
 ## [Architecture](./docs/architecture.md)
 
----
-
 ## [Essentials](./docs/essentials.md)
-
----
 
 ## Displaying Data
 
