@@ -23,6 +23,6 @@
 
 ## [Services, Dependency Injection, and Component Lifecycle Hooks](./docs/services-dependency-injection-lifecycle-hooks.md)
 
-## Data with Http
+## [Data with Http](./docs/http.md)
 
-## Routing
+## [Routing](./docs/routing.md)
