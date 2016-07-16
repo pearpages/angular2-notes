@@ -1,13 +1,22 @@
+## Displaying data
+
 ### Data Binding
 
 > We use data binding to help coordinate communication between a Component and its Template.
 
-+ Interpolation: {{expression}}
-+ One Way Binding: [property] = "expression"
-+ Event Binding: (event) = "statement"
-+ Two Way Binding: [(ngModel)] = "property"
++ Interpolation: ```{{expression}}```
++ One Way Binding: ```[property] = "expression"```
++ Event Binding: ```(event) = "statement"```
++ Two Way Binding: ```[(ngModel)] = "property"```
 
-Unidirectional data flow 
+### Unidirectional data flow
+
+- No more **$apply**
+- No more repeated digest cycles
+- No more watchers
+- No more performance issues with digest cycle and watcher limits
+
+```Template -> Event Binding -> Component -> Property Binding -> Template```
 
 ### Interpolation
 
@@ -36,6 +45,10 @@ We use the *Metadata* to tell the *Component* about the *Template*.
 [target] = "expression"
 bind-target = "expression"
 ```
+
+- We can bind to element properties
+- Component properties
+- Directive properties
 
 ```html
 <img [src]="vehicle.imageUrl" > <!-- element property -->

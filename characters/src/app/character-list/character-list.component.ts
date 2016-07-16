@@ -24,6 +24,10 @@ export class CharacterListComponent implements OnInit {
     return this.characters.get(this.textToFilter);
   }
 
+  isSelected(p: Person):boolean {
+    return this.selectedCharacter === p;
+  }
+
   resetFilter() {
     this.textToFilter = '';
   }
