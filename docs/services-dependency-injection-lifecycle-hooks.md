@@ -128,7 +128,7 @@ export class CharactersComponent implements OnInit {
 
 > The Lifecycle Interface helps enforce the valid use of a hook.
 
-+ ngOnChanges
++ ngOnChanges (any property changes)
 + ngOnInit (time of creation)
 + ngAfterViewInit
 + ngOnDestroy

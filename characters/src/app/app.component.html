@@ -10,7 +10,11 @@
 <button (click)="resetCharacterList()">Reset Child Filter</button>
 
 
-<div [style.border]="'1px solid black'">
+<div 
+[style.border]="'1px solid black'" 
+[style.background-color]="color" 
+(mouseenter)="color = '#CCC'"
+(mouseleave)="color = '#FFF'">
   <h4>Character List</h4>
   <character-list (changed)="catchEvent($event)"></character-list>  
 </div>
