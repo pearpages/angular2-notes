@@ -1,2 +1,3 @@
 node_modules/
 minimal/**/*.js
+!minimal/**/webpack.config.js
