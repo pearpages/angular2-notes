@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
     selector: 'app',
     template: `
     <h1>{{message}}</h1>
-    <p>Clock: {{clock | async}}</p>
+    <p>Clock: {{clock | async | date: 'yMMMMEEEEdjms' }}</p>
     ` 
 })
 export class App {
