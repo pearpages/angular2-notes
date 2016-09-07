@@ -1,6 +1,10 @@
 # docs
 
+## Questions
+
 - when do we *export* and when we don't
+
+Angular has a syntax feature called **template reference variables**. These variables grant us direct access to an element. We declare a template reference variable by preceding an identifier with a hash/pound character (#).
 
 ## ngModule
 
