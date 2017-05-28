@@ -43,11 +43,10 @@ var StoreComponent = (function () {
         this.productsPerPage = Number(newSize);
         this.changePage(1);
     };
-    Object.defineProperty(StoreComponent.prototype, "pageNumbers", {
+    Object.defineProperty(StoreComponent.prototype, "pageCount", {
         get: function () {
-            return Array(Math.ceil(this.repository
-                .getProducts(this.selectedCategory).length / this.productsPerPage))
-                .fill(0).map(function (x, i) { return i + 1; });
+            return Math.ceil(this.repository
+                .getProducts(this.selectedCategory).length / this.productsPerPage);
         },
         enumerable: true,
         configurable: true
