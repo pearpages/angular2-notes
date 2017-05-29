@@ -9,20 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var product_repository_1 = require("./product.repository");
 var static_datasource_1 = require("./static.datasource");
-var cart_model_1 = require("./cart.model");
-var order_model_1 = require("./order.model");
-var order_repository_1 = require("./order.repository");
-var ModelModule = (function () {
-    function ModelModule() {
+var OrderRepository = (function () {
+    function OrderRepository(dataSource) {
+        this.dataSource = dataSource;
+        this.orders = [];
     }
-    ModelModule = __decorate([
-        core_1.NgModule({
-            providers: [product_repository_1.ProductRepository, static_datasource_1.StaticDataSource, cart_model_1.Cart, order_model_1.Order, order_repository_1.OrderRepository]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ModelModule);
-    return ModelModule;
+    OrderRepository.prototype.getOrders = function () {
+        return this.orders;
+    };
+    OrderRepository.prototype.saveOrder = function (order) {
+        return this.dataSource.saveOrder(order);
+    };
+    OrderRepository = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [static_datasource_1.StaticDataSource])
+    ], OrderRepository);
+    return OrderRepository;
 }());
-exports.ModelModule = ModelModule;
+exports.OrderRepository = OrderRepository;
