@@ -9,24 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var auth_service_1 = require("../model/auth.service");
-var AdminComponent = (function () {
-    function AdminComponent(auth, router) {
-        this.auth = auth;
-        this.router = router;
+var ProductTableComponent = (function () {
+    function ProductTableComponent() {
     }
-    AdminComponent.prototype.logout = function () {
-        this.auth.clear();
-        this.router.navigateByUrl("/");
-    };
-    AdminComponent = __decorate([
+    ProductTableComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            templateUrl: "admin.component.html"
+            template: "<div class=\"bg-info p-a-1\">\n                <h3>Product Table Placeholder</h3>\n              </div>"
         }), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService, router_1.Router])
-    ], AdminComponent);
-    return AdminComponent;
+        __metadata('design:paramtypes', [])
+    ], ProductTableComponent);
+    return ProductTableComponent;
 }());
-exports.AdminComponent = AdminComponent;
+exports.ProductTableComponent = ProductTableComponent;
