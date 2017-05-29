@@ -9,14 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var product_repository_1 = require("../model/product.repository");
 var ProductTableComponent = (function () {
-    function ProductTableComponent() {
+    function ProductTableComponent(repository) {
+        this.repository = repository;
     }
+    ProductTableComponent.prototype.getProducts = function () {
+        return this.repository.getProducts();
+    };
+    ProductTableComponent.prototype.deleteProduct = function (id) {
+        this.repository.deleteProduct(id);
+    };
     ProductTableComponent = __decorate([
         core_1.Component({
-            template: "<div class=\"bg-info p-a-1\">\n                <h3>Product Table Placeholder</h3>\n              </div>"
+            moduleId: module.id,
+            templateUrl: "productTable.component.html"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [product_repository_1.ProductRepository])
     ], ProductTableComponent);
     return ProductTableComponent;
 }());
