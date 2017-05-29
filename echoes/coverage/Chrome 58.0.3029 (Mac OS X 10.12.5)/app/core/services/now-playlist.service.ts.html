@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/core/services/now-playlist.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">app/core/services/</a> now-playlist.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>16/20</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+var core_1 = require('@angular/core');
+var youtube_videos_info_service_1 = require('./youtube-videos-info.service');
+var NowPlaylistService = (function () {
+<span class="fstat-no" title="function not covered" >    function NowPlaylistService(youtubeVideosInfo) {</span>
+<span class="cstat-no" title="statement not covered" >        this.youtubeVideosInfo = youtubeVideosInfo;</span>
+    }
+    NowPlaylistService.prototype.queueVideo = <span class="fstat-no" title="function not covered" >function (mediaId) {</span>
+<span class="cstat-no" title="statement not covered" >        return this.youtubeVideosInfo.api</span>
+            .list(mediaId)
+            .map(<span class="fstat-no" title="function not covered" >function (items) {</span> <span class="cstat-no" title="statement not covered" >return items[0]; </span>});
+    };
+    NowPlaylistService.prototype.queueVideos = <span class="fstat-no" title="function not covered" >function (medias) {</span>
+    };
+    NowPlaylistService.prototype.removeVideo = <span class="fstat-no" title="function not covered" >function (media) {</span>
+    };
+    NowPlaylistService.prototype.selectVideo = <span class="fstat-no" title="function not covered" >function (media) {</span>
+    };
+    NowPlaylistService.prototype.updateFilter = <span class="fstat-no" title="function not covered" >function (filter) {</span>
+    };
+    NowPlaylistService.prototype.clearPlaylist = <span class="fstat-no" title="function not covered" >function () {</span>
+    };
+    NowPlaylistService.prototype.selectNextIndex = <span class="fstat-no" title="function not covered" >function () {</span>
+    };
+    NowPlaylistService.prototype.getCurrent = <span class="fstat-no" title="function not covered" >function () {</span>
+    };
+    NowPlaylistService.prototype.updateIndexByMedia = <span class="fstat-no" title="function not covered" >function (mediaId) {</span>
+    };
+    NowPlaylistService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof youtube_videos_info_service_1.YoutubeVideosInfo !== 'undefined' &amp;&amp; youtube_videos_info_service_1.YoutubeVideosInfo) === 'function' &amp;&amp; _a) || <span class="branch-2 cbranch-no" title="branch not covered" >Object]</span>)
+    ], NowPlaylistService);
+    return NowPlaylistService;
+<span class="cstat-no" title="statement not covered" >    var _a;</span>
+}());
+exports.NowPlaylistService = NowPlaylistService;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon May 29 2017 19:06:15 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

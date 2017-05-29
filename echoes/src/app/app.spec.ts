@@ -6,7 +6,7 @@ import {
 // Load the implementations that should be tested
 import { App } from './app.component';
 import { YoutubeSearch, YoutubePlayerService, NowPlaylistService } from './core/services';
-import { Notify } from "@ngrx/notify";
+// import { Notify } from "@ngrx/notify";
 // import { AppState } from './app.service';
 
 describe('App', () => {
@@ -18,7 +18,7 @@ describe('App', () => {
       { provide: YoutubeSearch, useClass: class YoutubeSearch {} },
       { provide: YoutubePlayerService, userClass: class YoutubePlayerService {} },
       { provide: NowPlaylistService, useValue: jasmine.createSpyObj('NowPlaylistService', ['updateIndexByMedia']) },
-      { provide: Notify, useClass: class Notify { }}
+      // { provide: Notify, useClass: class Notify { }}
     ]}));
 
   it('should be defined', inject([ App ], (app) => {

@@ -5,6 +5,7 @@ import { ActionReducer, Action, combineReducers } from '@ngrx/store';
 import { compose } from "@ngrx/core/compose";
 
 // reducers
+import { videos, YoutubeVideosActions, EchoesVideos } from './youtube-videos';
 
 // plugins
 import { localStorageSync } from './ngrx-store-localstorage';
@@ -14,21 +15,20 @@ import { localStorageSync } from './ngrx-store-localstorage';
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface EchoesState {
-
+  videos: EchoesVideos
 }
 
 const actions = [
-
+  YoutubeVideosActions
 ];
 
-const composeStore = compose(
-  localStorageSync([], true),
-  combineReducers
-)({ });
+const reducers = {
+  videos
+};
 
 @NgModule({
   imports: [
-    StoreModule.provideStore(composeStore),
+    StoreModule.provideStore(reducers),
   ],
   declarations: [
 

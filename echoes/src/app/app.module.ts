@@ -1,3 +1,4 @@
+import { YoutubeVideosComponent } from './youtube-videos/youtube-videos.component';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -34,7 +35,7 @@ const APP_PROVIDERS = [
 @NgModule({
   bootstrap: [ App ],
   declarations: [
-    App
+    App, YoutubeVideosComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
