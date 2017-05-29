@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { HttpModule } from '@angular/http'
 import { AppComponent } from "./app.component";
 import { StoreModule } from "./store/store.module";
 import { StoreComponent } from "./store/store.component";
@@ -10,7 +9,7 @@ import { RouterModule } from "@angular/router";
 import { StoreFirstGuard } from "./storeFirst.guard";
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, StoreModule, RouterModule.forRoot([
+    imports: [BrowserModule, StoreModule, RouterModule.forRoot([
         {
             path: "store", component: StoreComponent,
             canActivate: [StoreFirstGuard]

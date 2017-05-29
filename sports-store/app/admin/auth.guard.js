@@ -11,34 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var auth_service_1 = require("../model/auth.service");
-var AuthComponent = (function () {
-    function AuthComponent(router, auth) {
+var AuthGuard = (function () {
+    function AuthGuard(router, auth) {
         this.router = router;
         this.auth = auth;
     }
-    AuthComponent.prototype.authenticate = function (form) {
-        var _this = this;
-        if (form.valid) {
-            this.auth.authenticate(this.username, this.password)
-                .subscribe(function (response) {
-                if (response) {
-                    _this.router.navigateByUrl("/admin/main");
-                }
-                _this.errorMessage = "Authentication Failed";
-            });
-            this.router.navigateByUrl("/admin/main");
+    AuthGuard.prototype.canActivate = function (route, state) {
+        if (!this.auth.authenticated) {
+            this.router.navigateByUrl("/admin/auth");
+            return false;
         }
-        else {
-            this.errorMessage = "Form Data Invalid";
-        }
+        return true;
     };
-    AuthComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: "auth.component.html"
-        }), 
+    AuthGuard = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [router_1.Router, auth_service_1.AuthService])
-    ], AuthComponent);
-    return AuthComponent;
+    ], AuthGuard);
+    return AuthGuard;
 }());
-exports.AuthComponent = AuthComponent;
+exports.AuthGuard = AuthGuard;

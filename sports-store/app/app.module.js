@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-var http_1 = require('@angular/http');
 var app_component_1 = require("./app.component");
 var store_module_1 = require("./store/store.module");
 var store_component_1 = require("./store/store.component");
@@ -23,7 +22,7 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, store_module_1.StoreModule, router_1.RouterModule.forRoot([
+            imports: [platform_browser_1.BrowserModule, store_module_1.StoreModule, router_1.RouterModule.forRoot([
                     {
                         path: "store", component: store_component_1.StoreComponent,
                         canActivate: [storeFirst_guard_1.StoreFirstGuard]

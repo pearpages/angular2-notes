@@ -14,11 +14,13 @@ var forms_1 = require("@angular/forms");
 var router_1 = require("@angular/router");
 var auth_component_1 = require("./auth.component");
 var admin_component_1 = require("./admin.component");
+var auth_guard_1 = require("./auth.guard");
 // The main difference when creating a dynamically loaded module is that the feature module must be self-contained and include all the information that Angular requires, including the routing URLs that are supported and the components they display.
 // The RouterModule.forChild method is used to define the routing configuration for the feature module, which is then included in the module’s imports property.
 var routing = router_1.RouterModule.forChild([
     { path: "auth", component: auth_component_1.AuthComponent },
     { path: "main", component: admin_component_1.AdminComponent },
+    { path: "main", component: admin_component_1.AdminComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: "**", redirectTo: "auth" }
 ]);
 var AdminModule = (function () {
@@ -27,7 +29,8 @@ var AdminModule = (function () {
     AdminModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, forms_1.FormsModule, routing],
-            declarations: [auth_component_1.AuthComponent, admin_component_1.AdminComponent]
+            declarations: [auth_component_1.AuthComponent, admin_component_1.AdminComponent],
+            providers: [auth_guard_1.AuthGuard]
         }), 
         __metadata('design:paramtypes', [])
     ], AdminModule);
