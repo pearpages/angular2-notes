@@ -11,7 +11,7 @@ import { YoutubeSearch, YoutubePlayerService, NowPlaylistService } from './core/
 import { Observable } from "rxjs/Observable";
 import { Store } from '@ngrx/store';
 
-import { Notify } from "@ngrx/notify";
+// import { Notify } from "@ngrx/notify";
 /*
  * App Component
  * Top Level Component
@@ -27,9 +27,7 @@ export class App {
 
     public youtubeSearch: YoutubeSearch,
     public playerService: YoutubePlayerService,
-    public nowPlaylistService: NowPlaylistService,
-
-    private notify: Notify
+    public nowPlaylistService: NowPlaylistService
   ) {
 
 

@@ -20,14 +20,14 @@ import { CoreModule } from './core';
 // SERVICES
 import { APP_SERVICES } from './core/services';
 
-import { NOTIFY_PROVIDERS, NOTIFY_GLOBAL_OPTIONS } from '@ngrx/notify';
+// import { NOTIFY_PROVIDERS, NOTIFY_GLOBAL_OPTIONS } from '@ngrx/notify';
 
 import 'rxjs/Rx';
 
 // Application wide providers
 const APP_PROVIDERS = [
-  APP_SERVICES,
-  NOTIFY_PROVIDERS
+  APP_SERVICES
+  //NOTIFY_PROVIDERS
 ];
 
 // AppModule is the main entry point into Angular2's bootstraping process
