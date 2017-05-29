@@ -1,0 +1,10 @@
+client/**/*.js
+client/**/*.map
+
+typings
+node_modules
+jspm_packages
+bower_components
+
+.idea/
+.DS_Store
