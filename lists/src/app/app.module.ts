@@ -1,4 +1,4 @@
-import { AllComponent } from './common/all/all.component';
+import { AllComponent } from './main/all/all.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WidgetsModule } from './widgets/widgets.module';
 import { NotesModule } from './notes/notes.module';
@@ -8,8 +8,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './common/home/home.component';
-import { NotFoundComponent } from './common/not-found/not-found.component';
+import { HomeComponent } from './main/home/home.component';
+import { NotFoundComponent } from './main/not-found/not-found.component';
 
 
 @NgModule({

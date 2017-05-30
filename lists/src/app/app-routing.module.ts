@@ -1,6 +1,6 @@
-import { NotFoundComponent } from './common/not-found/not-found.component';
-import { AllComponent } from './common/all/all.component';
-import { HomeComponent } from './common/home/home.component';
+import { NotFoundComponent } from './main/not-found/not-found.component';
+import { AllComponent } from './main/all/all.component';
+import { HomeComponent } from './main/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
