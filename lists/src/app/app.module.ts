@@ -1,3 +1,4 @@
+import { MyFormsModule } from './my-forms/my-forms.module';
 import { SharedModule } from './shared/shared.module';
 import { AllComponent } from './main/all/all.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { NotFoundComponent } from './main/not-found/not-found.component';
     CarsModule,
     NotesModule,
     WidgetsModule,
+    MyFormsModule,
     AppRoutingModule
   ],
   providers: [],
