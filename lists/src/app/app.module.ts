@@ -1,3 +1,4 @@
+import { NotesModule } from './notes/notes.module';
 import { CarsModule } from './cars/cars.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    CarsModule
+    CarsModule,
+    NotesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
