@@ -1,3 +1,6 @@
+import { CarsService } from './../../services/cars.service';
+import { CarComponent } from './../car/car.component';
+import { DriverComponent } from './../driver/driver.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CarsPanelComponent } from './cars-panel.component';
@@ -8,7 +11,8 @@ describe('CarsPanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarsPanelComponent ]
+      declarations: [ CarsPanelComponent, DriverComponent, CarComponent ],
+      providers:[CarsService]
     })
     .compileComponents();
   }));

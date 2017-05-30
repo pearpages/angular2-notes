@@ -1,3 +1,5 @@
+import { NotesModule } from './notes/notes.module';
+import { CarsModule } from './cars/cars.module';
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
@@ -8,6 +10,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [CarsModule,NotesModule]
     }).compileComponents();
   }));
 
