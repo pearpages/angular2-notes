@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverComponent implements OnInit {
 
+  color: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeBackground(color: string) {
+    this.color = color;
   }
 
 }

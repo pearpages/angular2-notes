@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { DriverComponent } from './components/driver/driver.component';
 import { CarComponent } from './components/car/car.component';
 import { CarsPanelComponent } from './components/cars-panel/cars-panel.component';
+import { CarsListComponent } from './components/cars-list/cars-list.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [DriverComponent, CarComponent, CarsPanelComponent],
+  declarations: [DriverComponent, CarComponent, CarsPanelComponent, CarsListComponent],
   exports: [
     CarsPanelComponent
   ],

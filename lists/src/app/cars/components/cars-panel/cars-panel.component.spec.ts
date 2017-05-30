@@ -1,3 +1,4 @@
+import { CarsListComponent } from './../../components/cars-list/cars-list.component';
 import { CarsService } from './../../services/cars.service';
 import { CarComponent } from './../car/car.component';
 import { DriverComponent } from './../driver/driver.component';
@@ -11,8 +12,8 @@ describe('CarsPanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarsPanelComponent, DriverComponent, CarComponent ],
-      providers:[CarsService]
+      declarations: [ CarsPanelComponent, DriverComponent, CarComponent, CarsListComponent ],
+      providers: [CarsService]
     })
     .compileComponents();
   }));

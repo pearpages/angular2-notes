@@ -1,5 +1,5 @@
-<div class="component">
-  <p>
-    driver works!
-  </p>
+<div [class]="'component '+color">
+  <h3>Driver Component</h3>
+  <button (click)="changeBackground('blue')">Background Blue</button>
+  <button (click)="changeBackground('red')">Background Red</button>
 </div>

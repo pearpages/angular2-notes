@@ -1,3 +1,4 @@
+import { Car } from './../../models/Car';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,12 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CarComponent implements OnInit {
 
-  @Input() name: string = 'fill this field with a name!';
-  @Output() performClick: EventEmitter<Event> = new EventEmitter();
+  @Input() car: Car;
+  @Output() carClick: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  performClick($event) {
+    this.carClick.emit($event.target.value);
   }
 
 }

@@ -1,5 +1,3 @@
-import { Car } from './../../models/Car';
-import { CarsService } from './../../services/cars.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,12 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsPanelComponent implements OnInit {
 
-  cars: Car[] = [];
+  ngOnInit() {}
 
-  constructor(private carsList: CarsService) { }
-
-  ngOnInit() {
-    this.cars = this.carsList.getCars();
+  handleCarClick(id) {
+    console.log(id);
   }
-
 }
