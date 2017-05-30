@@ -1,7 +1,8 @@
-<h1>
-  {{title}}
-</h1>
-
-<app-cars-panel></app-cars-panel>
-<app-notes-panel></app-notes-panel>
-<app-widgets-panel></app-widgets-panel>
+<h1>{{title}}</h1>
+<nav>
+    <a routerLink="/" routerLinkActive="active">Home</a>
+    <a routerLink="/cars" routerLinkActive="active">Cars</a>
+    <a routerLink="/widgets" routerLinkActive="active">Widgets</a>
+    <a routerLink="/notes" routerLinkActive="active">Notes</a>
+  </nav>
+<router-outlet></router-outlet>

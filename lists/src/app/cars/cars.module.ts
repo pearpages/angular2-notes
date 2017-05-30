@@ -1,3 +1,4 @@
+import { CarsRoutingRoutingModule } from './cars-routing.module';
 import { CarsService } from './services/cars.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,7 +9,7 @@ import { CarsListComponent } from './components/cars-list/cars-list.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule, CarsRoutingRoutingModule
   ],
   declarations: [DriverComponent, CarComponent, CarsPanelComponent, CarsListComponent],
   exports: [
