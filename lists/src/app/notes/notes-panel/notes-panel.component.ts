@@ -12,4 +12,11 @@ export class NotesPanelComponent implements OnInit {
   ngOnInit() {
   }
 
+  myFunction(value:number) {
+    return value*value;
+  }
+
+  handleResult(result) {
+    alert(result);
+  }
 }

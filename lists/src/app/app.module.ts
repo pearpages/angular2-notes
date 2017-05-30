@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { AllComponent } from './main/all/all.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WidgetsModule } from './widgets/widgets.module';
@@ -19,6 +20,7 @@ import { NotFoundComponent } from './main/not-found/not-found.component';
   // Module import order matters
   // Look at the module imports array. Notice that the AppRoutingModule is last.
   imports: [
+    SharedModule,
     BrowserModule,
     FormsModule,
     HttpModule,
