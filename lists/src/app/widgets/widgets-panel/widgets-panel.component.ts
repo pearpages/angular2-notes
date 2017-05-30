@@ -1,3 +1,5 @@
+import { Widget } from './../models/widget';
+import { WidgetsService } from './../services/widgets.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetsPanelComponent implements OnInit {
 
-  constructor() { }
+  widgets: Widget[];
+
+  constructor(private _widgets: WidgetsService) { }
 
   ngOnInit() {
+    this.widgets = this._widgets.getWidgets();
   }
 
 }

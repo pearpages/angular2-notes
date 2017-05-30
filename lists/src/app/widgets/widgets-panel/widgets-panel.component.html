@@ -1,5 +1,10 @@
 <div class="panel">
-  <p>
-    widgets-panel works!
-  </p>
+  <h2>Widgets Panel</h2>
+
+  <div class="component" *ngFor="let item of widgets">
+    <h4 [id]="item.id">{{item.title}}</h4>
+    <div class="html">
+      {{item.html}}
+    </div>
+  </div>
 </div>

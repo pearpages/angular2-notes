@@ -11,10 +11,10 @@ export class CarsListComponent implements OnInit {
 
   cars: Car[] = [];
 
-  constructor(private carsList: CarsService) { }
+  constructor(private _carsList: CarsService) { }
 
   ngOnInit() {
-    this.cars = this.carsList.getCars();
+    this.cars = this._carsList.getCars();
   }
 
 }
