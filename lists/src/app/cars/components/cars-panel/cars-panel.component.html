@@ -1,0 +1,9 @@
+<div class="panel">
+  <h4>Cars Panel</h4>
+  <app-driver></app-driver>
+  <app-car [name]="'BMW X34'"></app-car>
+  <h3>Cars List</h3>
+  <ul>
+    <li *ngFor="let car of cars">{{car.id}}. {{car.name}} {{car.description}}</li>
+  </ul>
+</div>
