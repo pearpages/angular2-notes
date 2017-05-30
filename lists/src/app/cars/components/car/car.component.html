@@ -1,7 +1,9 @@
 <div class="component">
   <div class="car">
     <h3>Name: {{car?.name}}</h3>
-    <p>This is a car component</p>
+    <p>This is a car component.</p>
+    <p>The id that comes from the route is {{id}}</p>
     <button [value]="car?.id" (click)="performClick($event)">Click</button>
+    <p>Total CarComponents clicked {{times}} times.</p>
   </div>
 </div>

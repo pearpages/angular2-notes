@@ -1,11 +1,21 @@
 <div class="panel">
   <h4>Cars Panel</h4>
+
+  <button (click)="gotoCar(15)">Go to car 15</button>
+  <a [routerLink]="['/car',15]" >Go to car 15</a>
+
   <app-driver></app-driver>
 
   <app-car [car]="{
     name: 'BMW X34',
     id: 234,
     description: 'Amazing super fast Car'
+  }" (carClick)="handleCarClick($event)"></app-car>
+
+    <app-car [car]="{
+    name: 'Mercedes 345',
+    id: 236,
+    description: 'Amazing Xpensive Awesome Car'
   }" (carClick)="handleCarClick($event)"></app-car>
 
   <app-cars-list></app-cars-list>
