@@ -1,3 +1,4 @@
+import { WidgetsModule } from './widgets/widgets.module';
 import { NotesModule } from './notes/notes.module';
 import { CarsModule } from './cars/cars.module';
 import { TestBed, async } from '@angular/core/testing';
@@ -10,7 +11,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports: [CarsModule,NotesModule]
+      imports: [CarsModule, NotesModule, WidgetsModule]
     }).compileComponents();
   }));
 
