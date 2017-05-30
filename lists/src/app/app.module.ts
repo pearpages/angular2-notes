@@ -1,3 +1,4 @@
+import { AllComponent } from './common/all/all.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WidgetsModule } from './widgets/widgets.module';
 import { NotesModule } from './notes/notes.module';
@@ -8,10 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './common/home/home.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent
+    AppComponent, HomeComponent, AllComponent, NotFoundComponent
   ],
   // Module import order matters
   // Look at the module imports array. Notice that the AppRoutingModule is last.

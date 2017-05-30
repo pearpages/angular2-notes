@@ -1,3 +1,5 @@
+import { NotFoundComponent } from './common/not-found/not-found.component';
+import { AllComponent } from './common/all/all.component';
 import { HomeComponent } from './common/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,7 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
-    { path: '**', component: HomeComponent }
+    { path: 'all', component: AllComponent },
+    { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
