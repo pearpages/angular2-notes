@@ -12,6 +12,15 @@
 </style>
 
 <div class="component">
+
+  <h4>Find Car</h4>
+  <form #findForm="ngForm" (submit)="findCar()">
+    <label for="id">ID</label>
+      <input #id type="number" class="form-control" id="id" [(ngModel)]="find" name="id" required>
+      <button [disabled]="!findForm.form.valid" type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+  <h4>Add / Update </h4>
   <form #carForm="ngForm" (submit)="onSubmit()">
         <div class="form-group">
       <label for="id">ID</label>

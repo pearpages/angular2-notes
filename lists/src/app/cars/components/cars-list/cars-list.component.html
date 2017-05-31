@@ -1,6 +1,7 @@
 <div class="component">
   <h3>Cars List</h3>
+  <button (click)="getInitialList()" class="btn btn-default">Get Initial List</button>
   <ul>
-    <li *ngFor="let car of cars$ | async">{{car.id}}. {{car.name}} {{car.description}}</li>
+    <li *ngFor="let car of cars$ | async">{{car.id}}. {{car.name}} {{car.description}} <button class="btn btn-default" (click)="remove(car)">Remove</button></li>
   </ul>
 </div>

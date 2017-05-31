@@ -20,4 +20,11 @@ export class CarsListComponent implements OnInit {
     this.cars$ = this._carsList.getCars();
   }
 
+  remove(car: Car) {
+    this._carsList.removeCar(car);
+  }
+
+  getInitialList() {
+    this._carsList.getInitialList();
+  }
 }

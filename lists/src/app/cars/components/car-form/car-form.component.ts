@@ -11,13 +11,20 @@ export class CarFormComponent implements OnInit {
 
   model: Car = {id:undefined,name:'',description:''};
 
+  find: number;
+
   constructor(private _cars: CarsService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this._cars.addCar(this.model);
+    this._cars.updateCar(this.model);
     this.model = {id:undefined,name:'',description:''};
+  }
+
+  findCar() {
+    let car:Car = this._cars.getCar(this.find);
+    this.model = Object.assign({},car);
   }
 }
