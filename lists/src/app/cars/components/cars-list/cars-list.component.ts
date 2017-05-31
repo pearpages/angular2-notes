@@ -12,12 +12,12 @@ import { CarsService } from './../../services/cars.service';
 })
 export class CarsListComponent implements OnInit {
 
-  cars: Observable<Car[]>;
+  cars$: Observable<Car[]>;
 
   constructor(private _carsList: CarsService) { }
 
   ngOnInit() {
-    this.cars = this._carsList.getCars();
+    this.cars$ = this._carsList.getCars();
   }
 
 }
