@@ -1,11 +1,6 @@
 import { Car } from './models/Car';
 import { Action, ActionReducer } from '@ngrx/store';
-
-export const ADD_CAR = 'ADD_CAR';
-export const REMOVE_CAR = 'REMOVE_CAR';
-export const GET_INITIAL_LIST = 'GET_INITIAL_LIST';
-export const UPDATE_CAR = 'UPDATE_CAR';
-export const RESET_CARS = 'RESET_CARS';
+import * as actions from './cars.actions';
 
 const defaultCars: Car[] = [
   { id: 1, name: 'Acura' },
@@ -14,20 +9,20 @@ const defaultCars: Car[] = [
 
 export const cars: ActionReducer<Car[]> = (state:Car[] = defaultCars, action: Action) => {
     switch(action.type) {
-        case RESET_CARS:
+        case actions.RESET_CARS:
             return action.payload.slice(0);
-        case ADD_CAR:
+        case actions.ADD_CAR:
             return [...state, action.payload];
-        case REMOVE_CAR:
+        case actions.REMOVE_CAR:
             const i = getIndex(state,action.payload);
             return [...state.slice(0,i),...state.slice(i+1)]
-        case GET_INITIAL_LIST:
+        case actions.GET_INITIAL_LIST:
             return defaultCars.slice(0);
         case
-            UPDATE_CAR:
+            actions.UPDATE_CAR:
             const j = getIndex(state,action.payload.id);
             if(j === -1) {
-                action.type = ADD_CAR
+                action.type = actions.ADD_CAR
                 return cars(state,action);
             } else {
                 return [...state.slice(0,j),action.payload,...state.slice(j+1)]

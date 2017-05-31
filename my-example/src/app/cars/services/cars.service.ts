@@ -1,5 +1,5 @@
 import { Http, Response } from '@angular/http';
-import { ADD_CAR, REMOVE_CAR, GET_INITIAL_LIST, UPDATE_CAR, RESET_CARS } from './../cars.reducer';
+import  * as actions from './../cars.actions';
 import { Store, Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -20,22 +20,21 @@ export class CarsService {
     this._http.get('http://localhost:3001/cars')
       .map((res: Response) => res.json())
       .subscribe((cars: Car[]) => {
-        console.log('updating');
-        this._store.dispatch({ type: RESET_CARS, payload: cars });
+        this._store.dispatch(new actions.ResetCars(cars));
       });
     return this.cars$;
   }
 
   addCar(car: Car) {
-    this._store.dispatch({ type: ADD_CAR, payload: car });
+    this._store.dispatch(new actions.AddCar(car));
   }
 
   removeCar(car: Car) {
-    this._store.dispatch({ type: REMOVE_CAR, payload: car.id });
+    this._store.dispatch(new actions.RemoveCar(car.id));
   }
 
   getInitialList() {
-    this._store.dispatch({ type: GET_INITIAL_LIST });
+    this._store.dispatch(new actions.GetInitialList());
   }
 
   getCar(id: number): Car {
@@ -43,6 +42,6 @@ export class CarsService {
   }
 
   updateCar(car: Car) {
-    this._store.dispatch({ type: UPDATE_CAR, payload: car });
+    this._store.dispatch(new actions.UpdateCar(car));
   }
 }
