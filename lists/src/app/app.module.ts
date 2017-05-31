@@ -1,3 +1,5 @@
+import { cars } from './cars/cars.reducer';
+import { StoreModule } from '@ngrx/store';
 import { MyFormsModule } from './my-forms/my-forms.module';
 import { SharedModule } from './shared/shared.module';
 import { AllComponent } from './main/all/all.component';
@@ -13,7 +15,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './main/home/home.component';
 import { NotFoundComponent } from './main/not-found/not-found.component';
 
-
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, AllComponent, NotFoundComponent
@@ -21,6 +22,9 @@ import { NotFoundComponent } from './main/not-found/not-found.component';
   // Module import order matters
   // Look at the module imports array. Notice that the AppRoutingModule is last.
   imports: [
+    StoreModule.provideStore({
+      cars
+    }),
     SharedModule,
     BrowserModule,
     FormsModule,

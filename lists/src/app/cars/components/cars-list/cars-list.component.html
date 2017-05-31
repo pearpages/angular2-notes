@@ -1,6 +1,6 @@
 <div class="component">
   <h3>Cars List</h3>
   <ul>
-    <li *ngFor="let car of cars">{{car.id}}. {{car.name}} {{car.description}}</li>
+    <li *ngFor="let car of cars | async">{{car.id}}. {{car.name}} {{car.description}}</li>
   </ul>
 </div>

@@ -1,22 +1,22 @@
+import { ADD_CAR } from './../cars.reducer';
+import { Store, Action } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { AppStore } from './../../app-store';
 import { Car } from './../models/Car';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable()
 export class CarsService {
+  cars$: Observable<Car[]> = this._store.select('cars');
 
-  constructor() { }
+  constructor(private _store: Store<AppStore>) { }
 
-  getCars(): Car[] {
-    return [
-      {id:1,name:'Acura'},
-      {id:2,name:'Alfa Romeo'},
-      {id:3,name:'Aston Martin'},
-      {id:4,name:'Audi',description:'A stupid description for Audi'},
-      {id:5,name:'Bentley'},
-      {id:6,name:'BMW'},
-      {id:7,name:'Bugatti'},
-      {id:8,name:'Buick'}
-    ];
+  getCars(): Observable<Car[]> {
+    return this.cars$;
+  }
+
+  addCar(car: Car) {
+    this._store.dispatch({type: ADD_CAR, payload: car});
   }
 
 }

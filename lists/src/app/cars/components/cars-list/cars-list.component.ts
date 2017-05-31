@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Car } from './../../models/Car';
 import { CarsService } from './../../services/cars.service';
 
@@ -9,7 +12,7 @@ import { CarsService } from './../../services/cars.service';
 })
 export class CarsListComponent implements OnInit {
 
-  cars: Car[] = [];
+  cars: Observable<Car[]>;
 
   constructor(private _carsList: CarsService) { }
 
