@@ -27,4 +27,8 @@ export class CarsListComponent implements OnInit {
   getInitialList() {
     this._carsList.getInitialList();
   }
+
+  getRefreshFromServer() {
+    this._carsList.getCars();
+  }
 }

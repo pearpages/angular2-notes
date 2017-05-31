@@ -1,24 +1,37 @@
 {
-  "posts": [
+  "cars": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Acura"
     },
     {
       "id": 2,
-      "title": "nice post",
-      "author": "Pere Pages"
-    }
-  ],
-  "comments": [
+      "name": "Alfa Romeo"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 3,
+      "name": "Aston Martin"
+    },
+    {
+      "id": 4,
+      "name": "Audi",
+      "description": "A stupid description for Audi"
+    },
+    {
+      "id": 5,
+      "name": "Bentley"
+    },
+    {
+      "id": 6,
+      "name": "BMW"
+    },
+    {
+      "id": 7,
+      "name": "Bugatti"
+    },
+    {
+      "id": 8,
+      "name": "Buick"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

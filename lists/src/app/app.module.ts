@@ -27,8 +27,6 @@ import { NotFoundComponent } from './main/not-found/not-found.component';
     }),
     SharedModule,
     BrowserModule,
-    FormsModule,
-    HttpModule,
     CarsModule,
     NotesModule,
     WidgetsModule,

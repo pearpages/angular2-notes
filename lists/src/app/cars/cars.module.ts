@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { CarsRoutingRoutingModule } from './cars-routing.module';
 import { CarsService } from './services/cars.service';
@@ -11,7 +12,7 @@ import { CarFormComponent } from './components/car-form/car-form.component';
 
 @NgModule({
   imports: [
-    CommonModule, CarsRoutingRoutingModule, FormsModule
+    CommonModule, CarsRoutingRoutingModule, FormsModule, HttpModule
   ],
   declarations: [DriverComponent, CarComponent, CarsPanelComponent, CarsListComponent, CarFormComponent],
   exports: [
