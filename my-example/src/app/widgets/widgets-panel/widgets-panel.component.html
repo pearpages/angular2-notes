@@ -1,7 +1,7 @@
-<div class="panel">
+<div class="card m-4 p-4">
   <h2>Widgets Panel</h2>
 
-  <div class="component" *ngFor="let item of widgets">
+  <div class="card m-4 p-4" *ngFor="let item of widgets">
     <h4 [id]="item.id">{{item.title}}</h4>
     <div class="html">
       {{item.html}}

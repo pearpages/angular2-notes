@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 //  The router uses a first-match wins strategy when matching routes, so more specific routes should be placed above less specific routes.
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'all', component: AllComponent },
     { path: '**', component: NotFoundComponent }
 ];

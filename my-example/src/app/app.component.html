@@ -1,11 +1,29 @@
-<h1>{{title}}</h1>
-<nav>
-    <a routerLink="/" routerLinkActive="active">Home</a>
-    <a routerLink="/cars" routerLinkActive="active">Cars</a>
-    <a routerLink="/widgets" routerLinkActive="active">Widgets</a>
-    <a routerLink="/notes" routerLinkActive="active">Notes</a>
-    <a routerLink="/template-driven-form" routerLinkActive="active">Template Driven Form</a>
-    <a routerLink="/reactive-form" routerLinkActive="active">Template Driven Form</a>
-    <a routerLink="/all" routerLinkActive="active">All</a>
-  </nav>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <h1 class="navbar-brand mb-0">AMZ</h1>
+  <div id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/cars" routerLinkActive="active">Cars</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/widgets" routerLinkActive="active">Widgets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/notes" routerLinkActive="active">Notes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/template-driven-form" routerLinkActive="active">Template Driven Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/reactive-form" routerLinkActive="active">Template Driven Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/all" routerLinkActive="active">All</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <router-outlet></router-outlet>

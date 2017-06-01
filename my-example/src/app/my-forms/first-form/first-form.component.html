@@ -10,68 +10,69 @@
     /* red */
   }
 </style>
-
-<div class="container">
-  <h1>Template Driven</h1>
-  <h2>Hero Form</h2>
-  <form #heroForm="ngForm" (ngSubmit)="onSubmit()">
-    {{diagnostic}}
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input #name type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="alterEgo">Alter Ego</label>
-      <input #alterEgo type="text" class="form-control" [(ngModel)]="model.alterEgo" name="alterEgo" id="alterEgo">
-    </div>
-    <div class="form-group">
-      <label for="power">Hero Power</label>
-      <select #power class="form-control" id="power" [(ngModel)]="model.power" name="power" required>
+<div class="card m-4 p-4">
+  <div class="container">
+    <h1>Template Driven</h1>
+    <h2>Hero Form</h2>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit()">
+      {{diagnostic}}
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input #name type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input #alterEgo type="text" class="form-control" [(ngModel)]="model.alterEgo" name="alterEgo" id="alterEgo">
+      </div>
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select #power class="form-control" id="power" [(ngModel)]="model.power" name="power" required>
     <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
   </select>
-    </div>
-    <button [disabled]="!heroForm.form.valid" type="submit" class="btn btn-success">Submit</button>
-    <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
-    <button type="button" class="btn btn-default" (click)="heroForm.reset()">Reset</button>
-  </form>
+      </div>
+      <button [disabled]="!heroForm.form.valid" type="submit" class="btn btn-success">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
+      <button type="button" class="btn btn-default" (click)="heroForm.reset()">Reset</button>
+    </form>
 
-  <br/>
-  <pre>
+    <br/>
+    <pre>
     {{modelSubmitted | json}}
   </pre>
-</div>
+  </div>
 
-<div>
-  <h3>Controls</h3>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Field</th>
-        <th>visited</th>
-        <th>changed</th>
-        <th>valid</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>name</td>
-        <td [class]="">{{touched(name.className)}}</td>
-        <td [class]="">{{pristine(name.className)}}</td>
-        <td [class]="">{{valid(name.className)}}</td>
-      </tr>
-      <tr>
-        <td>alterEgo</td>
-        <td [class]="">{{touched(alterEgo.className)}}</td>
-        <td [class]="">{{pristine(alterEgo.className)}}</td>
-        <td [class]="">{{valid(alterEgo.className)}}</td>
-      </tr>
-      <tr>
-        <td>power</td>
-        <td [class]="">{{touched(power.className)}}</td>
-        <td [class]="">{{pristine(power.className)}}</td>
-        <td [class]="">{{valid(power.className)}}</td>
-      </tr>
-    </tbody>
+  <div>
+    <h3>Controls</h3>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>visited</th>
+          <th>changed</th>
+          <th>valid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td [class]="">{{touched(name.className)}}</td>
+          <td [class]="">{{pristine(name.className)}}</td>
+          <td [class]="">{{valid(name.className)}}</td>
+        </tr>
+        <tr>
+          <td>alterEgo</td>
+          <td [class]="">{{touched(alterEgo.className)}}</td>
+          <td [class]="">{{pristine(alterEgo.className)}}</td>
+          <td [class]="">{{valid(alterEgo.className)}}</td>
+        </tr>
+        <tr>
+          <td>power</td>
+          <td [class]="">{{touched(power.className)}}</td>
+          <td [class]="">{{pristine(power.className)}}</td>
+          <td [class]="">{{valid(power.className)}}</td>
+        </tr>
+      </tbody>
 
-  </table>
+    </table>
+  </div>
 </div>
