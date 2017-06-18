@@ -1,1 +1,0 @@
-export * from './viewchild.component';
