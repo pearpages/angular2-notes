@@ -6,9 +6,22 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-comp',
   template: `
-  <span class="status"></span>
+  <ul>
+    <li *ngFor="let passenger of passengers">
+      <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+    </li>
+  </ul>
+
+  <ul>
+    <li *ngFor="let passenger of passengers">
+      <span class="status" [ngClass]="{ 
+        'checked-in': passenger.checkedIn,
+        'checked-out': "passenger.checkedIn
+       }"></span>
+    </li>
+  </ul>
   `
 })
 
-export class MyCompComponent {}
+// ...
 ```
