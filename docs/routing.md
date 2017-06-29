@@ -1,3 +1,160 @@
+# Routing
+
+## index.html
+
+```html
+<base href="/">
+```
+
+## imports
+
+```ts
+import { BrowserModule }        from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+```
+
+## Routing Module
+
+```ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { NameComponent } from './name.component';
+
+const routes: Routes = [
+  { path: 'path', component: NameComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  // forRoot if it's main module
+  exports: [RouterModule],
+})
+export class NameRoutingModule { }
+
+export const routedComponents = [NameComponent];
+```
+
+## router-outlet
+
+```html
+<router-outlet></router-outlet>
+```
+
+## links
+
+```html
+<nav>
+    <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+</nav>
+```
+
+## wildcard route
+
+> The router selects the route with a **first match** wins strategy.
+
+```ts
+{ path: '**', component: PageNotFoundComponent }
+```
+
+## redirecting routes
+
+### pathMatch
+
++ 'full'
++ 'prefix'
+
+```ts
+const appRoutes: Routes = [
+  { path: 'crisis-center', component: CrisisListComponent },
+  { path: 'heroes',        component: HeroListComponent },
+  { path: '',   redirectTo: '/heroes', pathMatch: 'full' }, // <---
+  { path: '**', component: PageNotFoundComponent }
+];
+```
+
+## Module import order matters
+
+> The order of route configuration matters. The router accepts the first route that matches a navigation request path.
+
+## Navigate Imperatively: router.navigate()
+
+```ts
+// being in a component
+constructor(private router: Router) {}
+
+// ...
+  this.router.navigate(['/hero', hero.id]);
+
+  // or
+
+  this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
+
+// ...
+```
+
+## ActivatedRoute: the one-stop-shop for route information
+
++ url: An **Observable** of the route path(s), represented as an array of strings for each part of the route path.
++ data: An **Observable** that contains the data object provided for the route. Also contains any resolved values from the resolve guard.
++ params: An **Observable** that contains the required and optional parameters specific to the route.
++ queryParams: An **Observable** that contains the query parameters available to all routes.
++ fragment: An **Observable** of the URL fragment available to all routes.
++ outlet: The name of the RouterOutlet used to render the route. For an unnamed outlet, the outlet name is primary.
++ routeConfig: The route configuration used for the route that contains the origin path.
++ parent: an ActivatedRoute that contains the information from the parent route when using child routes.
++ firstChild: contains the first ActivatedRoute in the list of child routes.
++ children: contains all the child routes activated under the current route.
+
+```ts
+import { Router, ActivatedRoute, Params } from '@angular/router';
+```
+
+```ts
+// inside the component
+constructor(
+  private route: ActivatedRoute,
+  private router: Router,
+  private service: HeroService
+) {}
+
+ngOnInit() {
+  this.route.params
+    // (+) converts string 'id' to a number
+    .switchMap((params: Params) => this.service.getHero(+params['id']))
+    .subscribe((hero: Hero) => this.hero = hero);
+}
+```
+
+## Snapshot: the no-observable alternative
+
+```ts
+let id = +this.route.snapshot.params['id'];
+```
+
+## Matrix URL
+
+```
+localhost:3000/heroes;id=15;foo=foo
+```
+
+## BrowserAnimationsModule? 
+
+BrowserAnimationsModule?
+
+## Route Guards
+
+### kinds of guards
+
++ CanActivate
++ CanActivateChild()
++ CanDeactivate
+* Resolve
++ CanLoad
+
+---
+
 - Route Configuration
 - Router Outlets
 - Router Links
