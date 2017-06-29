@@ -12,9 +12,12 @@ import { PageNotFoundComponent } from './page-not-found.component';
 const routes: Routes = [
   { path: '', component: RootComponent },
   { path: 'blue', component: BlueComponent },
+  { path: 'blue/house', component: BlueComponent },
+  { path: 'blue/car', component: BlueComponent },
   { path: 'red', component: RedComponent },
   { path: 'orange', component: OrangeComponent },
-  { path: 'black', redirectTo: 'blue' },
+  { path: 'brown', redirectTo: 'blue', pathMatch: 'full' },
+  { path: 'black', redirectTo: 'blue', pathMatch: 'prefix' },
   { path: 'hero/hello', component: OrangeComponent },
   { path: 'hero/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesListComponent, data: { title: 'Heroes List' } },
