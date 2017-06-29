@@ -10,7 +10,8 @@ import { RootComponent } from './root.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: RootComponent },
+  { path: '', redirectTo: 'root', pathMatch: 'full' },
+  { path: 'root', component: RootComponent},
   { path: 'blue', component: BlueComponent },
   { path: 'blue/house', component: BlueComponent },
   { path: 'blue/car', component: BlueComponent },

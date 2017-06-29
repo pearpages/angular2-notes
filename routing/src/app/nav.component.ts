@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
     selector: 'ro-nav',
     template: `
         <nav>
-            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="">Home</a>
-            <a routerLinkActive="active" routerLink="blue">Blue</a>
+            <a routerLinkActive="active" routerLink="root">Home</a>
+            <a routerLinkActive="active" routerLink="blue" [routerLinkActiveOptions]="{ exact: true }">Blue</a>
             <a routerLinkActive="active" routerLink="blue/house">Blue</a>
             <a routerLinkActive="active"
             routerLink="blue"
