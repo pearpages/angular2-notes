@@ -10,11 +10,12 @@ import { RootComponent } from './root.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: RootComponent, pathMatch: 'full' },
+  { path: '', component: RootComponent },
   { path: 'blue', component: BlueComponent },
   { path: 'red', component: RedComponent },
   { path: 'orange', component: OrangeComponent },
   { path: 'black', redirectTo: 'blue' },
+  { path: 'hero/hello', component: OrangeComponent },
   { path: 'hero/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesListComponent, data: { title: 'Heroes List' } },
   { path: '**', component: PageNotFoundComponent }
