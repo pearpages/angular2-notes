@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BlueComponent } from './blue.component';
-import { RedComponent } from './red.component';
-import { OrangeComponent } from './orange.component';
+import { routedComponents, ColorsRoutingModule } from './colors.routing';
 
 @NgModule({
     declarations: [
-        BlueComponent,
-        RedComponent,
-        OrangeComponent
+        routedComponents
     ],
-    imports: [CommonModule],
+    imports: [
+        CommonModule,
+        ColorsRoutingModule
+    ],
     exports: [
-        BlueComponent,
-        RedComponent,
-        OrangeComponent
+        routedComponents
     ],
     providers: [],
 })

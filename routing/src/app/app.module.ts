@@ -1,21 +1,19 @@
 import { PageNotFoundComponent } from './page-not-found.component';
-import { NavComponent } from './nav.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HeroesModule } from './heroes/heroes.module';
 import { ColorsModule } from './colors/colors.module';
-import { AppRoutingModule } from './app.routing';
+import { routedComponents, AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { RootComponent } from './root.component';
+import { NavComponent } from './nav.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    PageNotFoundComponent,
-    RootComponent
+    routedComponents
   ],
   imports: [
     BrowserModule,
