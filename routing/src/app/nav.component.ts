@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'ro-nav',
@@ -19,6 +20,8 @@ import { Component, OnInit } from '@angular/core';
             <a routerLinkActive="active" routerLink="hero/joan">Hero Joan</a>
             <a routerLinkActive="active" routerLink="heroes">Heroes List</a>
         </nav>
+        <button (click)="gotoHeroes()">heroes</button>
+        <button (click)="gotoHero('pere')">hero pere</button>
         `,
     styles: [`
         a.active {
@@ -31,7 +34,16 @@ import { Component, OnInit } from '@angular/core';
     `]
 })
 export class NavComponent implements OnInit {
-    constructor() { }
+
+    constructor(private router: Router) { }
 
     ngOnInit() { }
+
+    gotoHeroes(): void {
+        this.router.navigate(['heroes']);
+    }
+
+    gotoHero(id: string): void {
+        this.router.navigate(['hero', id]);
+    }
 }
