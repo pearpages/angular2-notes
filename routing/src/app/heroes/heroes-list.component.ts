@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
     selector: 'ro-heroes-list',
     template: `
     <ul>
-        <li *ngFor="let hero of heroes" [class]="getCssClass((id$ | async),hero)">{{hero}}</li>
+        <li *ngFor="let hero of heroes" [class.selected]="isSelected((id$ | async),hero)">{{hero}}</li>
     </ul>
     <pre>data: {{data$ | async | json}}</pre>
     <pre>id: {{id$ | async | json}}</pre>
@@ -43,10 +43,7 @@ export class HeroesListComponent implements OnInit {
             .map( (paramMap: ParamMap) => paramMap.get('id'));
     }
 
-    getCssClass(id: string, hero: string) {
-        if (id.toLowerCase() === hero.toLowerCase() ) {
-            return 'selected';
-        }
-        return '';
+    isSelected(id: string, hero: string): boolean {
+        return (id.toLowerCase() === hero.toLowerCase() );
     }
 }
