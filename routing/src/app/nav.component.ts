@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
             <a routerLinkActive="active" routerLink="heroes">Heroes List</a>
         </nav>
         <button (click)="gotoHeroes()">heroes</button>
-        <button (click)="gotoHeroes({var1: 'whatever', var2: 'whatever2'})">heroes with params</button>
+        <button (click)="gotoHeroes({var1: 'whatever', var2: 'whatever2'})">heroes with params (Matrix URL)</button>
         <button (click)="gotoHero('pere')">hero pere</button>
         <button (click)="gotoHero('carles')">hero carles</button>
         `,
