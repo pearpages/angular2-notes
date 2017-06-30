@@ -21,7 +21,20 @@ import { Observable } from 'rxjs/Observable';
             <li>children</li>
         </ul>
     </div>
-    <pre>params: {{params$ | async | json}}</pre>
+    <pre>paramMap: {{params$ | async | json}}</pre>
+    <div>
+        ParamMap has:
+        <ul>
+            <li>has(name)</li>
+            <li>get(name)</li>
+            <li>getAll(name)</li>
+            <li>keys</li>
+        </ul>
+    </div>
+    <div>
+        When you know for certain that a HeroDetailComponent instance will never,
+         never, ever be re-used, you can simplify the code with the snapshot.
+    </div>
         `,
     styles: [``]
 })

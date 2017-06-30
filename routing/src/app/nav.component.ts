@@ -21,7 +21,9 @@ import { Router } from '@angular/router';
             <a routerLinkActive="active" routerLink="heroes">Heroes List</a>
         </nav>
         <button (click)="gotoHeroes()">heroes</button>
+        <button (click)="gotoHeroes({var1: 'whatever', var2: 'whatever2'})">heroes with params</button>
         <button (click)="gotoHero('pere')">hero pere</button>
+        <button (click)="gotoHero('carles')">hero carles</button>
         `,
     styles: [`
         a.active {
@@ -39,8 +41,13 @@ export class NavComponent implements OnInit {
 
     ngOnInit() { }
 
-    gotoHeroes(): void {
-        this.router.navigate(['heroes']);
+    gotoHeroes(params: Object): void {
+        if (params) {
+            console.log(params);
+            this.router.navigate(['heroes', params]);
+        } else {
+            this.router.navigate(['heroes']);
+        }
     }
 
     gotoHero(id: string): void {
