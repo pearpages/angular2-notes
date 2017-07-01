@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
         <button (click)="gotoHeroes()">heroes</button>
         <button (click)="gotoHeroes({id: 'carles', var2: 'whatever2'})">heroes with params (Matrix URL)</button>
         <button (click)="gotoHero('pere')">hero pere</button>
-        <button (click)="gotoHero('carles')">hero carles</button>
+        <button (click)="gotoHero('carles','soler')">hero carles soler</button>
         `,
     styles: [`
         a.active {
@@ -49,7 +49,11 @@ export class NavComponent implements OnInit {
         }
     }
 
-    gotoHero(id: string): void {
+    gotoHero(id: string, surname: string): void {
+        if (surname) {
+            this.router.navigate(['hero', id, surname]);
+            return;
+        }
         this.router.navigate(['hero', id]);
     }
 }

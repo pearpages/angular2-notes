@@ -12,7 +12,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    // The order of route configuration matters. The router accepts the first route that matches a navigation request path.
+    RouterModule.forRoot(routes,
+      { enableTracing: true } // <-- debugging purposes only),
+    )
   ],
   exports: [RouterModule],
 })

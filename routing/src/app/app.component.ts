@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <h1>Routing App</h1>
+    <p>Remember to learn about 'BrowserAnimationsModule'</p>
     <ro-nav></ro-nav>
     <router-outlet></router-outlet>
   `,
