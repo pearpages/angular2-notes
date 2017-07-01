@@ -28,6 +28,7 @@ export class HeroesListComponent implements OnInit {
     heroes: string[] = [
         'Pere',
         'Joan',
+        'Carles',
         'Jaume',
         'Josep',
         'Maria',
@@ -40,10 +41,15 @@ export class HeroesListComponent implements OnInit {
         this.data$ = this.route.data;
 
         this.id$ = this.route.paramMap
-            .map( (paramMap: ParamMap) => paramMap.get('id'));
+            .map( (paramMap: ParamMap) => {
+                return paramMap.get('id');
+            });
     }
 
     isSelected(id: string, hero: string): boolean {
-        return (id.toLowerCase() === hero.toLowerCase() );
+        if (!id) {
+            return false;
+        }
+        return ( id.toLowerCase() === hero.toLowerCase() );
     }
 }
