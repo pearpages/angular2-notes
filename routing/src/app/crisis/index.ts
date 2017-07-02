@@ -5,3 +5,4 @@ export * from './crisis-detail.component';
 export * from './crisis-center-home.component';
 export * from './crisis.models';
 export * from './crisis.module';
+export * from './crisis-detail-resolver.service';

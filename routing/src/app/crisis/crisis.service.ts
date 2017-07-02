@@ -17,4 +17,14 @@ export class CrisisService {
     getAll(): Array<Crisis> {
         return crises;
     }
+
+    getCrisis(id): Promise<Crisis> {
+        const p = new Promise( (resolve) => {
+            resolve(crises.find( crisis => {
+                return crisis.id == id;
+            }));
+        });
+        return p;
+
+    }
 }

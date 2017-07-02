@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
     <router-outlet name="popup"></router-outlet>
     <div><a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a></div>
     <footer>
-      <p>Remember to learn about 'BrowserAnimationsModule'</p>
+      <h3>Remember to learn</h3>
+      <ul>
+        <li>BroswerAnimationsModule</li>
+        <li>CanDeactivate</li>
+      </ul>
     </footer>
   `
 })

@@ -15,8 +15,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     // The order of route configuration matters. The router accepts the first route that matches a navigation request path.
-    RouterModule.forRoot(routes,
-      { enableTracing: true } // <-- debugging purposes only),
+    RouterModule.forRoot(routes
+      //,{ enableTracing: true } // <-- debugging purposes only),
     )
   ],
   exports: [RouterModule],

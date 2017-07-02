@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CrisisCenterComponent, CrisisListComponent, CrisisDetailComponent, CrisisCenterHomeComponent } from '.';
+import { CrisisCenterComponent, CrisisListComponent, CrisisDetailComponent, CrisisCenterHomeComponent, CrisisDetailResolver } from '.';
 
 const routes: Routes = [
   { path: 'crisis-center',
@@ -13,7 +13,10 @@ const routes: Routes = [
         children: [
           {
             path: ':id',
-            component: CrisisDetailComponent
+            component: CrisisDetailComponent,
+            resolve: {
+              crisis: CrisisDetailResolver
+            }
           },
           {
             path: '',
@@ -28,6 +31,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
+  ],
+  providers: [
+    CrisisDetailResolver
   ],
   exports: [RouterModule],
 })
