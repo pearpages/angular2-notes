@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
 import { HeroesModule } from './heroes/heroes.module';
+import { AdminModule } from './admin/admin.module';
 import { CrisisModule } from './crisis/crisis.module';
 import { ColorsModule } from './colors/colors.module';
 import { routedComponents, AppRoutingModule } from './app.routing';
@@ -22,6 +23,7 @@ import { NavComponent } from './nav.component';
   imports: [
     FormsModule,
     BrowserModule,
+    AdminModule,
     CrisisModule,
     ColorsModule,
     HeroesModule,
