@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
     template: `
         <nav>
             <a routerLinkActive="active" routerLink="root">Home</a>
+            <a routerLinkActive="active" routerLink="login">Login</a>
             <a routerLinkActive="active" routerLink="admin">Admin</a>
+            <a routerLinkActive="active" routerLink="admin/crises">Manage Crises</a>
             <a routerLinkActive="active" routerLink="crisis-center">Crisis</a>
             <a routerLinkActive="active" routerLink="blue" [routerLinkActiveOptions]="{ exact: true }">Blue</a>
             <a routerLinkActive="active" routerLink="blue/house">Blue</a>
