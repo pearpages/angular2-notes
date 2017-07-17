@@ -44,6 +44,7 @@
 + lo anterior tb se aplica a los campos de una clase.
 + no pueden haber nunca, ningún tipo de variable, campo de clase o dependencia sin usar.
 + configurar linter para que no permita lineas más largas de 100
++ Cuando utilicemos un servicio de terceros, lo encapsulamos dentro de un servicio propio con nombres genéricos.
 
 ## HTML
 
@@ -54,5 +55,20 @@
 
 ## CSS / SASS
 
-+ utilizar nomenclatura BEM, Seperando bloques que contienen elementos que a sí mismo pueden tener modificadores. e.g. entry__title_highlighted
+### CSS
+
++ utilizar nomenclatura BEM, Seperando bloques que contienen elementos que a sí mismo pueden tener modificadores. e.g. entry__title--highlighted
++ clases *standalone* llamadas **is-** o **has-** e.g. *is-highlighted*
++ Intentaremos aprovechar pseudoclases siempre que sea posible. Y eso incluye elementos **::after** **::before**.
++ Cuando los estilos hacen referencia a un solo elemento o componente se asignan a al css asociado a ese componente.
++ Si dos componentes **comparten el mismo css**, le asignamos un nombre común y que los dos lo importen.
++ Si dos o más componentes en contextos diferentes comparten reglas de estilo, entonces les asignaremos en el espacio css común.
+
+### SASS
+
 + los bloques diferentes aunque estén anidados en el DOM tendrán estilos no anidados en el SASS, y sólo estarán anidados en el SASS si éstos estilos dependen del hecho de estar dentro.
++ las **variables** las centralizamos en un único archivo de variables por proyecto.
++ La única excepción es cuando estamos en un archivo dónde tenemos un mismo valor que sin ser configurable se suele repetir muchas veces.
++ Todo lo anterior se aplica también a los **@mixins**.
++ Las **clases** tienen que venir todas con un prefijo (namespace). eg. class="as-is-fullscreen".
++ NUNCA se harcodea en un archivo un color o el tamaño o dimensión de cualquier elemento del DOM. En cúanto tenemos un valor lo promocionamos a una variable.
