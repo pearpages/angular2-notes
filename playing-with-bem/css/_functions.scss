@@ -1,0 +1,7 @@
+@function color($color, $tone: 'base') {
+  @return map-get(map-get($colors, $color), $tone);
+}
+
+@function overlay-heights($key) {
+  @return map-get($overlay-heights, $key);
+}

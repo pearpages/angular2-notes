@@ -1,0 +1,8 @@
+body {
+  font-size: 14px; }
+  body .at-user-card {
+    font-size: 12px;
+    background-color: tomato;
+    height: 700px; }
+    body .at-user-card__title {
+      font-size: 24px; }

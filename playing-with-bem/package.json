@@ -1,0 +1,16 @@
+{
+  "name": "playing-with-bem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:dev": "node-sass ./css/main.scss ./dist/main.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.5.3",
+    "sass-lint": "^1.10.2"
+  }
+}

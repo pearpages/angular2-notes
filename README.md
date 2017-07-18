@@ -31,6 +31,10 @@
 
 ---
 
+## General
+
++ Si al refactorizar eliminamos código, tenemos que evaluar que el código restante siga siendo relevante.
+
 ## Typescript
 
 + linter Activado siempre

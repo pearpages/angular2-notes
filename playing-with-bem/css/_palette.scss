@@ -1,0 +1,111 @@
+// Color palette
+$default-base-color: #6BBF59;
+
+$colors: (
+  // -- Basic Color Palette
+  black: (
+    darker:       #141414,
+    dark:         #222222,
+    base:         #424242,
+    light:        #646464,
+    lighter:      #757575
+  ),
+
+  purple: (
+    darker:       #4F1F4A,
+    dark:         #6A2761,
+    base:         #8F3985,
+    light:        #9B4991,
+    lighter:      #B880B2
+  ),
+
+  royalblue: (
+    darker:       #0A0A51,
+    dark:         #1B316A,
+    base:         #274690,
+    light:        #4D66A6,
+    lighter:      #9BA9CE
+  ),
+
+  blue: (
+    darker:       #6DA3AC,
+    dark:         #88CBD6,
+    base:         #98DFEA,
+    light:        #A8E4EE,
+    lighter:      #CFF0F6
+  ),
+
+  green: (
+    darker:       #396A2E,
+    dark:         #559E44,
+    base:         #6BBF59,
+    light:        #9CE37D,
+    lighter:      #C0F6A9
+  ),
+
+  red: (
+    darker:       #AD2D24,
+    dark:         #D8372D,
+    base:         #EB3E39,
+    light:        #F06059,
+    lighter:      #FACAC8
+  ),
+
+  yellow: ( 
+    darker:        #EAAD00,
+    dark:          #FFBD00,
+    base:          #FACA00,
+    light:         #FBDC6B,
+    lighter:       #FDEEB6
+  ),
+
+  cyan: ( 
+    darker:        #1F6865,
+    dark:          #49918E,
+    base:          #07BEB8,
+    light:         #46CFCC,
+    lighter:       #BAEDEB
+  ),
+
+  grey: (
+    darker:        #7F7B82,
+    dark:          #919191,
+    base:          #CED0CE,
+    light:         #EEEEEE,
+    lighter:       #FAFAFA
+  ),
+
+  // -- Transparency shade tones
+  translucid: (
+    darker:       rgba(0, 0, 0, 0.8),
+    dark:         rgba(0, 0, 0, 0.5),
+    base:         rgba(255, 255, 255, 0.2),
+    light:        rgba(255, 255, 255, 0.3),
+    lighter:      rgba(255, 255, 255, 0.6),
+    transparent:  rgba(255, 255, 255, 0.0),
+  ),
+
+  // -- Third party color schemes
+  vendor: (
+    base:         $default-base-color,
+    // Payment methods
+    euteller:     #00478D,
+    neteller:     #83ba3b,
+    paysafe:      #008aca,
+    skrill:       #742665,
+    zimpler:      #41DCD6,
+    ecopayz:      #8BC42F,
+    trustly:      #69d720,
+    bank:         #008ACF,
+    mastercard:   #373492,
+    visa:         #930d0d,
+    creditcard:   #008ACF,
+    
+    // Social media
+    facebook:     rgba(59, 89, 152, 1),
+    google:       rgba(220, 78, 65, 1),
+    twitter:      rgba(85, 172, 238, 1),
+    instagram:    rgba(63, 114, 155, 1)
+  )
+
+);
