@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
     <input [(ngModel)]="value" type="number" name="value">
     <input [(ngModel)]="exponent" type="number" name="exponent">
     {{this.value | exponentialStrength:this.exponent}}
+
+    <pre>this.value | exponentialStrength:this.exponent</pre>
   </fieldset>
   `
 })

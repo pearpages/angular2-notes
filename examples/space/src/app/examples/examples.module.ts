@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ExamplesComponent } from './examples.component';
 import { CommunicationThroughComponentsModule } from './communication-though-components';
 import { HostExamplesModule } from './host-examples';
 import { CommunicationThroughServiceModule } from './communication-through-service';
@@ -23,7 +24,9 @@ const exportedModules = [
     ...exportedModules
   ],
   exports: [
-    ...exportedModules
-  ]
+    ...exportedModules,
+    ExamplesComponent
+  ],
+  declarations: [ExamplesComponent]
 })
 export class ExamplesModule { }
