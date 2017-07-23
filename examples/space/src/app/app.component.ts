@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <h1>{{title}}</h1>
 
+    <sp-pipes-example></sp-pipes-example>
     <sp-structural-directives-example></sp-structural-directives-example>
     <sp-attribute-directive-example></sp-attribute-directive-example>
     <sp-banner-example></sp-banner-example>

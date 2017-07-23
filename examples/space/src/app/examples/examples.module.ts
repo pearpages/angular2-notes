@@ -6,22 +6,24 @@ import { HostExamplesModule } from './host-examples';
 import { CommunicationThroughServiceModule } from './communication-through-service';
 import { DynamicComponentsModule } from './dynamic-components';
 import { DirectivesModule } from './directives';
+import { PipesModule } from './pipes';
+
+const exportedModules = [
+  CommunicationThroughServiceModule,
+  HostExamplesModule,
+  CommunicationThroughComponentsModule,
+  DynamicComponentsModule,
+  DirectivesModule,
+  PipesModule
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    CommunicationThroughServiceModule,
-    HostExamplesModule,
-    CommunicationThroughComponentsModule,
-    DynamicComponentsModule,
-    DirectivesModule
+    ...exportedModules
   ],
   exports: [
-    CommunicationThroughServiceModule,
-    HostExamplesModule,
-    CommunicationThroughComponentsModule,
-    DynamicComponentsModule,
-    DirectivesModule
+    ...exportedModules
   ]
 })
 export class ExamplesModule { }
