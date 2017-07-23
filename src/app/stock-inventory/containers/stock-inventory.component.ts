@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormArray } from '@angular/forms';
 
-import { Product } from './../models/product.interface';
+import { Product, Stock } from './../models/product.interface';
 
 @Component({
   selector: 'no-stock-inventory',
@@ -51,12 +51,19 @@ export class StockInventoryComponent {
       branch: new FormControl('B182'), // <-- default value
       code: new FormControl('1234')
     }),
-    selector: new FormGroup({
-      product_id: new FormControl(''),
-      quantity: new FormControl(10)
-    }),
-    stock: new FormArray([])
+    selector: this.createStock(),
+    stock: new FormArray([
+      this.createStock({prodcuct_id: '1', quantity: 10}),
+      this.createStock({prodcuct_id: '3', quantity: 50})
+    ])
   });
+
+  createStock(stock: Stock = {prodcuct_id: '', quantity: 10}): FormGroup {
+    return new FormGroup({
+      product_id: new FormControl(stock.prodcuct_id),
+      quantity: new FormControl(stock.quantity)
+    })
+  }
 
   onSubmit() {
     console.log('submit', this.form.value);
