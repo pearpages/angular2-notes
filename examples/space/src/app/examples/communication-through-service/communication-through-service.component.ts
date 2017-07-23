@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   `
 })
 
-export class CommunicationThroughtServiceComponent implements OnInit {
+export class CommunicationThroughServiceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
