@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-example-1',
+  selector: 'sp-communication-through-template-variable',
   template: `
     <h4>Parent Accessing Son Through Template Variable Component</h4>
     <sp-countdown-timer #timer></sp-countdown-timer>

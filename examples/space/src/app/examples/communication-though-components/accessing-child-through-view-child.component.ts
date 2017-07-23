@@ -4,7 +4,7 @@ import { Component }                from '@angular/core';
 import { CountdownTimerComponent } from '@space/shared';
 
 @Component({
-  selector: 'sp-example-3',
+  selector: 'sp-communication-through-viewchild',
   template: `
   <h4>Countdown to Liftoff (via ViewChild)</h4>
   <button (click)="start()">Start</button>

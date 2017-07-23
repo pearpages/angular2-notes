@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sp-example-5',
+  selector: 'sp-host-examples',
   template: `
   <h4>Host Examples Styles</h4>
   <button (click)="isBlue = !isBlue">Change Outer Context Class</button>
