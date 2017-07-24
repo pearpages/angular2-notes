@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from '@space/shared';
+import { UiModule } from './ui/ui.module';
 import { ExamplesComponent } from './examples/examples.component';
 import { ExamplesModule } from './examples/examples.module';
 import { routedComponents, AppRoutingModule } from './app.routing';
@@ -16,7 +16,7 @@ import { routedComponents, AppRoutingModule } from './app.routing';
     routedComponents
   ],
   imports: [
-    SharedModule,
+    UiModule,
     BrowserModule,
     FormsModule,
     HttpModule,

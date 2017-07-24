@@ -20,5 +20,5 @@ const exportedComponents = [
     ...exportedComponents
   ]
 })
-export class SharedModule { }
+export class UiModule { }
 
