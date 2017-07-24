@@ -1,16 +1,18 @@
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { HeroesComponent } from './heroes.component';
-import { CountdownTimerComponent } from './countdown-timer.component';
+import { NavigationComponent } from './navigation.component';
 
 const exportedComponents = [
-  HeroesComponent,
-  CountdownTimerComponent
+  NavigationComponent
   ];
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   exports: [
     ...exportedComponents
   ],

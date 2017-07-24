@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   `
 })
 
-export class InputOutputSetterGetterComponent {
+export class SettersGettersComponent {
   onClick(element: string) {
     alert(element);
   }

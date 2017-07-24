@@ -1,7 +1,7 @@
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { Component }                from '@angular/core';
 
-import { CountdownTimerComponent } from '@space/shared';
+import { CountdownTimerComponent } from './../shared/countdown-timer.component';
 
 @Component({
   selector: 'sp-communication-through-viewchild',
@@ -14,7 +14,7 @@ import { CountdownTimerComponent } from '@space/shared';
   <sp-countdown-timer></sp-countdown-timer>
   `
 })
-export class CountdownViewChildParentComponent implements AfterViewInit {
+export class ViewchildComponent implements AfterViewInit {
 
   @ViewChild(CountdownTimerComponent)
   private timerComponent: CountdownTimerComponent;

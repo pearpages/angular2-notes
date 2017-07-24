@@ -5,24 +5,23 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '@space/shared';
 import { ExamplesComponent } from './examples/examples.component';
 import { ExamplesModule } from './examples/examples.module';
-
-const appRoutes: Routes = [
-  {path: '', component: ExamplesComponent}
-];
+import { routedComponents, AppRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    routedComponents
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    SharedModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    ExamplesModule
+    ExamplesModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   `
 })
 
-export class ParentAccessingSonThroughTemplateVariableComponent implements OnInit {
+export class TemplateVariablesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }

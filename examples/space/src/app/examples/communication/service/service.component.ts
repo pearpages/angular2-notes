@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'sp-communication-through-service',
   template: `
   <h4>Communication Through Service</h4>
-  <mission-control></mission-control>
+  <sp-mission-control></sp-mission-control>
   `
 })
 

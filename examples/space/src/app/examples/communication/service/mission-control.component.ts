@@ -1,15 +1,15 @@
-import { Component }          from '@angular/core';
+import { Component } from '@angular/core';
 
-import { MissionService }     from './mission.service';
+import { MissionService } from './mission.service';
 
 @Component({
-  selector: 'mission-control',
+  selector: 'sp-mission-control',
   template: `
     <h2>Mission Control</h2>
     <button (click)="announce()">Announce mission</button>
-    <my-astronaut *ngFor="let astronaut of astronauts"
+    <sp-astronaut *ngFor="let astronaut of astronauts"
       [astronaut]="astronaut">
-    </my-astronaut>
+    </sp-astronaut>
     <h3>History</h3>
     <ul>
       <li *ngFor="let event of history">{{event}}</li>

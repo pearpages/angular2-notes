@@ -1,10 +1,10 @@
 import { Component, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 
 import { MissionService } from './mission.service';
-import { Subscription }   from 'rxjs/Subscription';
 
 @Component({
-  selector: 'my-astronaut',
+  selector: 'sp-astronaut',
   template: `
     <p>
       {{astronaut}}: <strong>{{mission}}</strong>
