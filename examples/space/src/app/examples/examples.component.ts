@@ -4,12 +4,12 @@ import { Component, OnInit } from '@angular/core';
   selector: 'sp-examples',
   template: `
   <h2>Examples</h2>
-  <nav>
-    <a routerLink="pipes" routerLinkActive="active">Pipes</a>
-    <a routerLink="host" routerLinkActive="active">Host</a>
-    <a routerLink="dynamic-components" routerLinkActive="active">Dynamic Components</a>
-    <a routerLink="directives" routerLinkActive="active">Directives</a>
-    <a routerLink="communication" routerLinkActive="active">Communication</a>
+  <nav class="sp-nav">
+    <a routerLink="pipes" routerLinkActive="sp-active">Pipes</a>
+    <a routerLink="host" routerLinkActive="sp-active">Host</a>
+    <a routerLink="dynamic-components" routerLinkActive="sp-active">Dynamic Components</a>
+    <a routerLink="directives" routerLinkActive="sp-active">Directives</a>
+    <a routerLink="communication" routerLinkActive="sp-active">Communication</a>
   </nav>
   <router-outlet></router-outlet>
   `

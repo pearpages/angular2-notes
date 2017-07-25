@@ -5,10 +5,10 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <h2>Communication Through Components</h2>
   <nav>
-    <a routerLink="service" routerLinkActive="active">Service</a>
-    <a routerLink="setter" routerLinkActive="active">Setter&Getter</a>
-    <a routerLink="template-variables" routerLinkActive="active">Template Variables</a>
-    <a routerLink="viewchild" routerLinkActive="active">Viewchild</a>
+    <a routerLink="service" routerLinkActive="sp-active">Service</a>
+    <a routerLink="setter" routerLinkActive="sp-active">Setter&Getter</a>
+    <a routerLink="template-variables" routerLinkActive="sp-active">Template Variables</a>
+    <a routerLink="viewchild" routerLinkActive="sp-active">Viewchild</a>
   </nav>
   <router-outlet></router-outlet>
   `

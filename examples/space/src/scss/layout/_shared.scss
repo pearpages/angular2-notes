@@ -1,7 +1,11 @@
 @import '../config/colors.scss';
 
-.code {
+.sp-code {
   background: $code-color;
   border-radius: 10px;
   padding: 14px;
+}
+
+.sp-highlight {
+  background: $highlight-color;
 }

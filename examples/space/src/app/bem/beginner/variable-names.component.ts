@@ -4,7 +4,7 @@ declare var require: any;
 
 @Component({
   selector: 'sp-variable-names',
-  templateUrl: './variable-names.html'
+  templateUrl: './variable-names.component.html'
 })
 
 export class VariableNamesComponent implements OnInit {

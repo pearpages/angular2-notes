@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <h2>Directives</h2>
   <nav>
-    <a routerLink="attribute" routerLinkActive="active">Attribute Directives</a>
-    <a routerLink="structural" routerLinkActive="active">Structural Directives</a>
+    <a routerLink="attribute" routerLinkActive="sp-active">Attribute Directives</a>
+    <a routerLink="structural" routerLinkActive="sp-active">Structural Directives</a>
   </nav>
   <router-outlet></router-outlet>
   `

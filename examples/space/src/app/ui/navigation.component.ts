@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'sp-navigation',
   template: `
-  <nav>
-    <a routerLink="examples" routerLinkActive="active">Examples</a>
-    <a routerLink="bem" routerLinkActive="active">Bem</a>
+  <nav class="sp-nav">
+    <a routerLink="examples" routerLinkActive="sp-active">Examples</a>
+    <a routerLink="bem" routerLinkActive="sp-active">Bem</a>
   </nav>
   `
 })
