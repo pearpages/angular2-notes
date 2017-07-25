@@ -1,23 +1,2 @@
-h1 {
-  color: blue;
-}
-a {
-    text-decoration: none;
-    color:grey;
-    text-transform: uppercase;
-    &::after {
-        content: " | ";
-    }
-    &:last-child {
-        &::after {
-            content: "";
-        }
-    }
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
-.active {
-    font-weight: bold;
-}
+@import './scss/config';
+@import './scss/layout';

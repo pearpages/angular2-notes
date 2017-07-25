@@ -5,9 +5,10 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { BemModule } from './bem/bem.module';
+import { ExamplesModule } from './examples/examples.module';
 import { UiModule } from './ui/ui.module';
 import { ExamplesComponent } from './examples/examples.component';
-import { ExamplesModule } from './examples/examples.module';
 import { routedComponents, AppRoutingModule } from './app.routing';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { routedComponents, AppRoutingModule } from './app.routing';
     FormsModule,
     HttpModule,
     ExamplesModule,
+    BemModule,
     AppRoutingModule
   ],
   providers: [],
