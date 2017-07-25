@@ -1,0 +1,191 @@
+<h1>How to structure a Sass project</h1>
+<blockquote class="sp-highlight">Or how to use <strong>@import</strong></blockquote>
+
+<h2>TOC</h2>
+
+<ul class="sp-toc">
+  <li>Base directory structure</li>
+  <li>Primary stylesheet</li>
+  <li>Modules, partials, and vendor</li>
+  <li>Using a base partial</li>
+</ul>
+
+<hr>
+
+<div class="sp-section">
+  <h2>Basic directory structure</h2>
+
+  <pre class="sp-code">
+    stylesheets/
+    |
+    |-- modules/              # Common modules
+    |   |-- _all.scss         # Include to get all modules
+    |   |-- _utility.scss     # Module name
+    |   |-- _colors.scss      # Etc...
+    |   ...
+    |
+    |-- partials/             # Partials
+    |   |-- _base.sass        # imports for all mixins + global project variables
+    |   |-- _buttons.scss     # buttons
+    |   |-- _figures.scss     # figures
+    |   |-- _grids.scss       # grids
+    |   |-- _typography.scss  # typography
+    |   |-- _reset.scss       # reset
+    |   ...
+    |
+    |-- vendor/               # CSS or Sass from other projects
+    |   |-- _colorpicker.scss
+    |   |-- _jquery.ui.core.scss
+    |   ...
+    |
+    `-- main.scss            # primary Sass file
+  </pre>
+
+</div>
+
+<hr>
+
+<div class="sp-section">
+  <h2>Primary stylesheet</h2>
+
+  <pre class="sp-code">
+  // Modules and Variables
+  @import "partials/base";
+
+  // Partials
+  @import "partials/reset";
+  @import "partials/typography";
+  @import "partials/buttons";
+  @import "partials/figures";
+  @import "partials/grids";
+  // ...
+
+  // Third-party
+  @import "vendor/colorpicker";
+  @import "vendor/jquery.ui.core";
+  </pre>
+</div>
+
+
+<hr>
+
+<div class="sp-section">
+  <h2>Modules, partials, and vendor</h2>
+
+  <div class="sp-section">
+    <h3>Modules</h3>
+
+    <p>The modules directory is reserved for Sass code that <span class="sp-highlight">doesn't cause Sass to actually output CSS</span>.</p>
+
+    <ul>
+      <li>mixins</li>
+      <li>declartions</li>
+      <li>functions</li>
+      <li>variables</li>
+    </ul>
+  </div>
+
+  <div class="sp-section">
+    <h3>Partials</h3>
+
+    <div><strong>SMACSS</strong>: Scalable and Modular Architecture for CSS</div>
+
+    <p>It is where the <i>meat</i> of the CSS is constructed.</p>
+
+    <ul>
+      <li>typography</li>
+      <li>buttons</li>
+      <li>textboxes</li>
+      <li>selectboxes</li>
+      <li>...</li>
+    </ul>
+  </div>
+
+  <div class="sp-section">
+    <h3>Vendor</h3>
+
+    <p>Is is the directory for <strong>third-party CSS</strong>.</p>
+
+    <p>As a general rule <span class="sp-highlight">make a point not to modify files in vendor directory</span>. If needed make
+      modifications in the primary stylesheet.</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="sp-section">
+  <h2>Using a base partial</h2>
+
+  <p>The purpose of this partial is to load up my Sass environment so that it's easy to construct a stylesheet.</p>
+
+  <p>The base stylesheet sets a couple of global variables and loads up all of my Sass modules.</p>
+
+  <p>This allows to build multiple stylesheets by importing different partials. Multiple stylesheets are handy once a project
+    grows to a certain size.</p>
+
+  <pre class="sp-code">
+  // Use Compass ('cause it rocks!)
+  @import "compass";
+
+  // Font weights
+  $light: 100;
+  $regular: 400;
+  $bold: 600;
+
+  // Base Font
+  $base-font-family: sans-serif;
+  $base-font-weight: $regular;
+  $base-font-size: 13px;
+  $base-line-height: 1.4;
+
+  // Fixed Font
+  $fixed-font-family: monospace;
+  $fixed-font-size: 85%;
+  $fixed-line-height: $base-line-height;
+
+  // Headings
+  $header-font-weight: $bold;
+
+  @import "modules/all";
+  </pre>
+
+  <div class="sp-section">
+    <h4>Example</h4>
+
+    <ul>
+      <li>primary stylesheet</li>
+      <li>modules</li>
+      <li>partials</li>
+      <li>base</li>
+    </ul>
+
+    <pre class="sp-code">
+    stylesheets/
+    |
+    |-- admin/           # Admin sub-project
+    |   |-- modules/
+    |   |-- partials/
+    |   `-- _base.scss
+    |
+    |-- account/         # Account sub-project
+    |   |-- modules/
+    |   |-- partials/
+    |   `-- _base.scss
+    |
+    |-- site/            # Site sub-project
+    |   |-- modules/
+    |   |-- partials/
+    |   `-- _base.scss
+    |
+    |-- vendor/          # CSS or Sass from other projects
+    |   |-- _colorpicker-1.1.scss
+    |   |-- _jquery.ui.core-1.9.1.scss
+    |   ...
+    |
+    |-- admin.scss       # Primary stylesheets for each project
+    |-- account.scss
+    `-- site.scss
+    </pre>
+  </div>
+
+</div>
