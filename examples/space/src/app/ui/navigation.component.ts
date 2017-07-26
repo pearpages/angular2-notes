@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <nav class="sp-nav">
     <a routerLink="examples" routerLinkActive="sp-active">Examples</a>
-    <a routerLink="bem" routerLinkActive="sp-active">Bem</a>
+    <a routerLink="css" routerLinkActive="sp-active">CSS</a>
   </nav>
   `
 })

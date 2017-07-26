@@ -7,7 +7,7 @@ import { VariableNamesComponent } from './variable-names.component';
 
 const routes: Routes = [
   {
-    path: 'bem/beginner', children: [
+    path: 'css/beginner', children: [
       { path: 'variable-names', component: VariableNamesComponent },
       { path: 'structure-sass', component: StructureSassComponent },
       { path: 'nested-selectors', component: NestedSelectorsComponent }

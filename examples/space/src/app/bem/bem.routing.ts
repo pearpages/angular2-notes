@@ -8,7 +8,7 @@ import { StructureSassComponent } from './beginner/structure-sass.component';
 import { VariableNamesComponent } from './beginner/variable-names.component';
 
 const routes: Routes = [
-  { path: 'bem', component: BemComponent },
+  { path: 'css', component: BemComponent },
 ];
 
 @NgModule({

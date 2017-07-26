@@ -5,7 +5,7 @@ import { SimpleGridMixinsComponent } from './simple-grid-mixins.component';
 import { ObjectOrientedCSSComponent } from './object-oriented-css.component';
 
 const routes: Routes = [
-  { path: 'bem/intermediate', children: [
+  { path: 'css/intermediate', children: [
     { path: 'simple-grid-mixins', component: SimpleGridMixinsComponent },
     { path: 'object-oriented-css', component: ObjectOrientedCSSComponent },
   ]},
