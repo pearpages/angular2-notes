@@ -1,3 +1,4 @@
+import { NestedSelectorsComponent } from './beginner/nested-selectors.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -9,7 +10,8 @@ import { VariableNamesComponent } from './beginner/variable-names.component';
 const routes: Routes = [
   { path: 'bem', component: BemComponent, children: [
     { path: 'variable-names', component: VariableNamesComponent },
-    { path: 'structure-sass', component: StructureSassComponent }
+    { path: 'structure-sass', component: StructureSassComponent },
+    { path: 'nested-selectors', component: NestedSelectorsComponent }
   ] },
 ];
 

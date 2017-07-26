@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { VariableNamesComponent } from './variable-names.component';
+import { NestedSelectorsComponent } from './nested-selectors.component';
 import { StructureSassComponent } from './structure-sass.component';
 
 @NgModule({
@@ -9,7 +10,8 @@ import { StructureSassComponent } from './structure-sass.component';
   exports: [],
   declarations: [
     VariableNamesComponent,
-    StructureSassComponent
+    StructureSassComponent,
+    NestedSelectorsComponent
   ],
   providers: [],
 })
