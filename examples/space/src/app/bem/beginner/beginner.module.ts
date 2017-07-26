@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { VariableNamesComponent } from './variable-names.component';
-import { NestedSelectorsComponent } from './nested-selectors.component';
-import { StructureSassComponent } from './structure-sass.component';
+import { beginnerRoutedComponents, BeginnerRoutingModule } from './beginner.routing';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, BeginnerRoutingModule],
   exports: [],
   declarations: [
-    VariableNamesComponent,
-    StructureSassComponent,
-    NestedSelectorsComponent
+    beginnerRoutedComponents
   ],
   providers: [],
 })

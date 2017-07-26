@@ -8,11 +8,7 @@ import { StructureSassComponent } from './beginner/structure-sass.component';
 import { VariableNamesComponent } from './beginner/variable-names.component';
 
 const routes: Routes = [
-  { path: 'bem', component: BemComponent, children: [
-    { path: 'variable-names', component: VariableNamesComponent },
-    { path: 'structure-sass', component: StructureSassComponent },
-    { path: 'nested-selectors', component: NestedSelectorsComponent }
-  ] },
+  { path: 'bem', component: BemComponent },
 ];
 
 @NgModule({

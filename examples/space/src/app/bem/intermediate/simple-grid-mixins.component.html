@@ -1,0 +1,36 @@
+<h1>Simple Grid Mixins</h1>
+
+<p class="sp-highlight">We can use mixins and style using existing classes and markup.</p>
+
+<div class="sp-section">
+  <h2>Basic mixins</h2>
+
+  <pre class="sp-code">
+    @mixin row()
+      font-size: 0;
+      //  This is little hack to kill the default margin of inline-block elements. (Inline-block elements appear in the normal text flow of the document, left-to-right, but unlike block elements that are floated, they still need to deal with the text nodes on either side which create unwanted margin. This hack of setting the font-size to zero makes the space disappear.)
+  </pre>
+
+  <pre class="sp-code">
+    @mixin col($align: top)
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: $align
+  </pre>
+
+  <pre class="sp-code">
+    @mixin col($col, $sum, $gap: 1em, $align: top)
+      width: 100%;
+      font-size: 16px;
+      display: inline-block;
+      box-sizing: border-box;
+      padding-left: if($first, 0, $gap);
+      padding-right: if($last, 0, $gap);
+
+      @media only screen and (min-width: 768px)
+        width: percentage($col/$sum);
+        vertical-align: $align;
+  </pre>
+
+</div>
+
