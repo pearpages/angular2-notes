@@ -1,0 +1,75 @@
+<h1>Object-Oriented CSS with SASS</h1>
+
+<p>OOCSS is not that different from other CSS methodologies like SMACSS or BEM.</p>
+
+<p class="sp-highlight">All of them aim to separate content from structure by placing CSS sytles in reusable modular blocks of code.</p>
+
+<div class="sp-section">
+  <h2>What is an object</h2>
+
+  <blockquote>
+    It's a repeating visual pattern, that can be abstracte into an independent snippet of HTML, CSS and possibly JavaScript"
+  </blockquote>
+
+  <h3>Two Main Principles</h3>
+
+  <ol>
+    <li>Seperate structure and skin: You should keep the structure and positioning in a base object and the visual features (like
+      background or border) in extender clases. This way you'd never have to overwrite visual properties.</li>
+    <li>Seperate container and content: : Never mimic the structure of your HTML in CSS. In other words, don't refer to tags
+      or IDs in your stylesheets. Instead, try to create and apply classes that describe the use of the tag in question.
+      And keep nested classes to a bare minimum.</li>
+  </ol>
+
+</div>
+
+<div class="sp-section">
+  <h2>Example</h2>
+
+  <pre class="sp-code">
+    /* The good way */
+    .box-1
+      width: 200px;
+      height: 200px;
+    .box-2
+      width: 120px;
+      height: 120px;
+    .box-border
+      border: 1px solid #CCC;
+      border-radius: 10px;
+  </pre>
+</div>
+
+<div class="sp-section">
+  <h2>Sass comes to play</h2>
+
+  <pre class="sp-code">
+    /* The best way */
+    %button
+      min-width: 100px;
+      padding: 1em;
+      border-radius: 1em;
+    %twitter-background
+      color: #fff;
+      background: #55acee;
+    %facebook-background
+      color: #fff;
+      background: #3b5998;
+
+    .btn
+      &--twitter
+        @extend %button;
+        @extend %twitter-background;
+      &--facebook
+        @extend %button;
+        @extend %facebook-background;
+  </pre>
+
+  <p>This produces efficent code like this:</p>
+
+  <pre class="sp-code">
+    a href="#" class="btn--twitter" Twitter
+    a href="#" class="btn--facebook" Facebook
+  </pre>
+
+</div>

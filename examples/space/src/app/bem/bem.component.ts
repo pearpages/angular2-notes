@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   <a [routerLink]="['beginner/nested-selectors']" routerLinkActive="sp-active">Nested Selectors</a>
   <h6>Intermediate</h6>
     <a [routerLink]="['intermediate/simple-grid-mixins']" routerLinkActive="sp-active">Simple Grid Mixins</a>
+    <a [routerLink]="['intermediate/object-oriented-css']" routerLinkActive="sp-active">Object Oriented CSS with SASS</a>
   <h6>Advanced</h6>
   <router-outlet></router-outlet>
   `
