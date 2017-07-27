@@ -10,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
     <li>validation</li>
     <li>error handling</li>
   </ul>
+  <nav>
+    <a [routerLink]="['hero-form']">Hero Form</a>
+  </nav>
   <router-outlet></router-outlet>
   `
 })

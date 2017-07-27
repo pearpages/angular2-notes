@@ -37,6 +37,8 @@ import { Hero } from './hero.models';
 
     </form>
 
+    <button *ngIf="submitted" class="btn btn-default" (click)="submitted = false">Add another hero</button>
+
     {{ diagnostic }}
     <p><strong>name className: </strong>{{ name.className }}</p>
 
