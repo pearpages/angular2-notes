@@ -1,5 +1,6 @@
+import { Directive, Input, TemplateRef, ViewContainerRef, OnInit, ComponentFactoryResolver, HostBinding } from '@angular/core';
+
 import { GotoTopComponent } from './goto-top.component';
-import { Directive, Input, TemplateRef, ViewContainerRef, OnInit, ComponentFactoryResolver } from '@angular/core';
 
 @Directive({ selector: '[spGotoTop]' })
 export class GotoTopDirective implements OnInit {
@@ -10,10 +11,6 @@ export class GotoTopDirective implements OnInit {
     private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    this.addGotoTopComponentToTheView();
-  }
-
-  private addGotoTopComponentToTheView() {
     this.viewContainer.createEmbeddedView(this.templateRef);
     const factory = this.componentFactoryResolver.resolveComponentFactory(GotoTopComponent);
     this.viewContainer.createComponent(factory);
