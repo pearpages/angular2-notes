@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   <nav class="sp-nav">
     <a routerLink="examples" routerLinkActive="sp-active">Examples</a>
     <a routerLink="css" routerLinkActive="sp-active">CSS</a>
+    <a routerLink="forms" routerLinkActive="sp-active">Forms</a>
   </nav>
   `
 })

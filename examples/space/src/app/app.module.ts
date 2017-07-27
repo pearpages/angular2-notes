@@ -9,7 +9,8 @@ import { BemModule } from './bem/bem.module';
 import { ExamplesModule } from './examples/examples.module';
 import { UiModule } from './ui/ui.module';
 import { ExamplesComponent } from './examples/examples.component';
-import { routedComponents, AppRoutingModule } from './app.routing';
+import { AppRoutingModule, routedComponents } from './app.routing';
+import { FormsExplainedModule } from './forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { routedComponents, AppRoutingModule } from './app.routing';
     BrowserModule,
     FormsModule,
     HttpModule,
+    FormsExplainedModule,
     ExamplesModule,
     BemModule,
     AppRoutingModule
