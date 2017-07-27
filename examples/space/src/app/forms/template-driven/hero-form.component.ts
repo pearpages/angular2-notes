@@ -7,6 +7,7 @@ import { Hero } from './hero.models';
   template: `
   <h2>HeroForm</h2>
   <a href="https://angular.io/guide/forms">Template Driven Forms Angular.io</a>
+  <a href="https://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html">More about it</a>
   <p>In template driven forms, if you've imported FormsModule, you don't have to do anything to the &lt;form&gt; tag in order to make use of FormsModule.</p>
   <p>[(ngModel)]="model.name" name="name"</p>
   <p>#heroForm="ngForm"</p>
