@@ -49,10 +49,25 @@ import { Component, OnInit } from '@angular/core';
 
   <hr>
 
-  <h3>Example</h3>
+  <h3>Example: Remove hiding content from the DOM</h3>
+
   <button class="btn btn-default" (click)="isHiddenElement = !isHiddenElement">Toggle Visibility</button>
   <p *spUnless="isHiddenElement">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
    Ducimus ad quibusdam eaque veniam at consequuntur odit doloremque saepe veritatis blanditiis!</p>
+
+  <hr>
+
+  <h3>Example: Appending a Component to the DOM</h3>
+
+  <p *spGotoTop>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+   Saepe ipsam minus inventore qui sunt asperiores nesciunt dignissimos,
+   officiis aspernatur voluptates error soluta vitae ducimus voluptas ratione esse accusamus, quam dolores,
+    deleniti dicta perferendis excepturi repellendus laborum.
+     Expedita sed impedit non error eius sequi suscipit nihil quos accusamus maiores, eaque cupiditate quia dolores tempore ratione,
+      eveniet aliquam sit! Quasi ipsa nobis quam voluptates nihil possimus asperiores adipisci accusantium hic itaque,
+       rem amet aspernatur dignissimos, doloribus maiores repudiandae voluptatum id alias quas, dicta ut obcaecati.
+        Sequi praesentium, odio repudiandae nemo perferendis laborum laudantium consequuntur quasi animi quos sunt tenetur illum.
+         Dolores, aliquam.</p>
   `
 })
 
