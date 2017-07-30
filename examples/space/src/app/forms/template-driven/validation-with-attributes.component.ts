@@ -5,6 +5,12 @@ import { Hero } from './hero.models';
 @Component({
   selector: 'sp-validation-example',
   template: `
+  <h3>Explanation</h3>
+  <div>
+  The template variable (#name) has the value "ngModel" (always ngModel). This gives you a reference to the Angular NgModel directive associated with this control that you can use in the template to check for control states such as valid and dirty.
+  </div>
+  <hr>
+
   <label for="name">Name</label>
 
   <input type="text" id="name" class="form-control"
@@ -27,7 +33,7 @@ import { Hero } from './hero.models';
   `
 })
 
-export class ValidationExampleComponent implements OnInit {
+export class ValidationWithAttributesComponent implements OnInit {
 
   hero: Hero = {
     id: 234245,

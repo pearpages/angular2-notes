@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { TemplateDrivenComponent } from './template-driven.component';
-import { ValidationExampleComponent } from './validation-example.component';
+import { ValidationWithAttributesComponent } from './validation-with-attributes.component';
+import { ValidationWithControllerCodeComponent } from './validation-with-controller-code.component';
 import { HeroFormComponent } from './hero-form.component';
 
 const routes: Routes = [
   { path: 'forms/template-driven', component: TemplateDrivenComponent, children: [
     {path: 'hero-form', component: HeroFormComponent },
-    {path: 'validation-example', component: ValidationExampleComponent }
+    {path: 'validation-with-attributes', component: ValidationWithAttributesComponent },
+    {path: 'validation-with-controller-code', component: ValidationWithControllerCodeComponent }
   ]},
 ];
 
@@ -21,5 +23,6 @@ export class TemplateDrivenRoutingModule { }
 export const templateDrivenRoutedComponents = [
   TemplateDrivenComponent,
   HeroFormComponent,
-  ValidationExampleComponent
+  ValidationWithAttributesComponent,
+  ValidationWithControllerCodeComponent
 ];

@@ -12,7 +12,8 @@ import { Component, OnInit } from '@angular/core';
   </ul>
   <nav>
     <a [routerLink]="['hero-form']">Hero Form</a>
-    <a [routerLink]="['validation-example']">Validation Example</a>
+    <a [routerLink]="['validation-with-attributes']">Validation With Attributes</a>
+    <a [routerLink]="['validation-with-controller-code']">Validation With Controller Code</a>
   </nav>
   <router-outlet></router-outlet>
   `
