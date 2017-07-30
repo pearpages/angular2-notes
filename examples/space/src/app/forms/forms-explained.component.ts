@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   <nav class="sp-nav">
     <a routerLink="basic" routerLinkActive="sp-active">Basic Concepts</a>
     <a routerLink="template-driven" routerLinkActive="sp-active">Template Driven</a>
+    <a routerLink="reactive" routerLinkActive="sp-active">Reactive Forms</a>
   </nav>
   <router-outlet></router-outlet>
   `

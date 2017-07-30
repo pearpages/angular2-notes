@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FormExplainedRoutingModule, formsRoutedComponents } from './forms-explained.routing';
 import { BasicModule } from './basic-concepts';
+import { ReactiveModule } from './reactive';
 import { TemplateDrivenModule } from './template-driven';
 
 @NgModule({
@@ -10,6 +11,7 @@ import { TemplateDrivenModule } from './template-driven';
     CommonModule,
     BasicModule,
     TemplateDrivenModule,
+    ReactiveModule,
     FormExplainedRoutingModule
   ],
   exports: [],
