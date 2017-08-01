@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { Hero } from './hero.models';
+import { Hero } from './../shared/hero.models';
 
 @Component({
   selector: 'sp-validation-controller',

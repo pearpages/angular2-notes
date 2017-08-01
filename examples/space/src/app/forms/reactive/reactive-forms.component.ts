@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { Hero } from './../shared/hero.models';
 
 @Component({
   selector: 'sp-reactive-forms',
-  template: `hello there`
+  templateUrl: './reactive-forms.component.html'
 })
 
-export class ReactiveFormsComponent implements OnInit {
-  constructor() { }
+export class ReactiveFormsComponent {
 
-  ngOnInit() { }
 }

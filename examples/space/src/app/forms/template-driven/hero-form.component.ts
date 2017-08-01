@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from './hero.models';
+import { Hero } from './../shared/hero.models';
 
 @Component({
   selector: 'sp-hero-form',

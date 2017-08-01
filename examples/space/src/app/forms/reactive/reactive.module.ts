@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ReactiveFormsComponent } from './reactive-forms.component';
+import { HeroReactiveFormComponent } from './hero-reactive-form.component';
 import { ReactiveRoutingModule } from './reactive.routing';
 
 @NgModule({
@@ -12,7 +13,7 @@ import { ReactiveRoutingModule } from './reactive.routing';
     ReactiveFormsModule
   ],
   exports: [],
-  declarations: [ReactiveFormsComponent],
+  declarations: [ReactiveFormsComponent, HeroReactiveFormComponent],
   providers: [],
 })
 export class ReactiveModule { }
