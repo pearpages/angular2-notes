@@ -5,6 +5,6 @@ export interface Product {
 }
 
 export interface Stock {
-  prodcuct_id: string;
+  product_id: string;
   quantity: number;
 }
