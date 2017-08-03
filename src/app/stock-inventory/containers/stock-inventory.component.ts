@@ -21,7 +21,9 @@ import { Product, Stock } from './../models/product.interface';
       </no-stock-selector>
 
       <no-stock-products 
-        [parent]="form">
+        [parent]="form"
+        (removed)="removeStock($event)"
+      >
       </no-stock-products>
 
       <div class="no-stock-inventory__buttons">
@@ -70,6 +72,10 @@ export class StockInventoryComponent {
 
   addStock(stock: Stock) {
     (this.form.get('stock') as FormArray).push(this.createStock(stock));
+  }
+
+  removeStock({group, index}: {group: FormGroup, index: number}) {
+    (this.form.get('stock') as FormArray).removeAt(index); // <--
   }
 
   onSubmit() {

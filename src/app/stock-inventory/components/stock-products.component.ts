@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
+
+import { Stock } from '../models/product.interface';
 
 @Component({
   selector: 'no-stock-products',
@@ -11,7 +13,10 @@ import { FormGroup, FormArray } from '@angular/forms';
         <div class="stock-product__content" [formGroupName]="i">
           <div class="stock-product__name">{{item.value.product_id}}</div>
           <input type="number" step="10" min="10" max="1000" formControlName="quantity">
-          <button type="button">Remove</button>
+          <button
+            type="button"
+            (click)="onRemoveItem(item, i)"
+          >Remove</button>
         </div>
 
       </div>
@@ -24,8 +29,14 @@ import { FormGroup, FormArray } from '@angular/forms';
 
 export class StockProductsComponent {
   @Input() parent: FormGroup;
+  @Output() removed: EventEmitter<{group: FormGroup, index: number}> = new EventEmitter();
 
   get stocks() {
     return (this.parent.get('stock') as FormArray).controls;
   }
+
+  onRemoveItem(group: FormGroup, index: number) {
+    this.removed.emit({group, index})
+  }
+
 }
