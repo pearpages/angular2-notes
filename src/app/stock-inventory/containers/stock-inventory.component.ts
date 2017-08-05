@@ -9,25 +9,26 @@ import { Product, Stock } from './../models/product.interface';
   <div class="no-stock-inventory">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-      <no-stock-branch 
+      <no-stock-branch
         [parent]="form">
       </no-stock-branch>
 
-      <no-stock-selector 
+      <no-stock-selector
         [parent]="form"
         [products]="products"
         (added)="addStock($event)"
         >
       </no-stock-selector>
 
-      <no-stock-products 
+      <no-stock-products
         [parent]="form"
         (removed)="removeStock($event)"
+        [map]="productMap"
       >
       </no-stock-products>
 
       <div class="no-stock-inventory__buttons">
-        <button 
+        <button
           type="submit"
           [disabled]="form.invalid"
         >Order stock</button>
@@ -50,8 +51,9 @@ export class StockInventoryComponent {
     {id: 4, price: 900, name: 'iPhone'},
     {id: 5, price: 600, name: 'Apple Watch'},
   ];
+  productMap: Map<string, Product> = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],['2',{id: 2, price: 50, name: 'USB-C Adaptor'}],['3',{id: 3, price: 400, name: 'iPod'}],['4',{id: 4, price: 900, name: 'iPhone'}],['5',{id: 5, price: 600, name: 'Apple Watch'}]]);
 
-  private constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   form = this.formBuilder.group({
     store: this.formBuilder.group({
