@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
 
 import { Product, Stock } from './../models/product.interface';
@@ -27,6 +27,8 @@ import { Product, Stock } from './../models/product.interface';
       >
       </no-stock-products>
 
+      <div>Total: {{total | currency: 'USD': 'symbol'}}</div>
+
       <div class="no-stock-inventory__buttons">
         <button
           type="submit"
@@ -43,7 +45,8 @@ import { Product, Stock } from './../models/product.interface';
   `]
 })
 
-export class StockInventoryComponent {
+export class StockInventoryComponent implements OnInit{
+  total: number;
   products: Product[] = [
     {id: 1, price: 2800, name: 'MacBook Pro'},
     {id: 2, price: 50, name: 'USB-C Adaptor'},
@@ -66,6 +69,15 @@ export class StockInventoryComponent {
       this.createStock({product_id: '3', quantity: 50})
     ])
   });
+
+  ngOnInit() {
+    this.calculateTotal(this.form.get('stock').value);
+    this.form.get('stock').valueChanges.subscribe(value => this.calculateTotal(value));
+  }
+
+  calculateTotal(value: Stock[]) {
+    this.total = value.reduce((prev, next) => prev + (next.quantity * this.productMap.get(next.product_id).price), 0);
+  }
 
   createStock(stock: Stock = {product_id: '', quantity: 10}): FormGroup {
     return this.formBuilder.group({
