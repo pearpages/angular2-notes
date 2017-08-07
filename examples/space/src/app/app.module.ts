@@ -7,6 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BemModule } from './bem/bem.module';
 import { ExamplesModule } from './examples/examples.module';
+import { LoginModule } from './login/login.module';
+import { CoreModule } from './core/core.module';
 import { UiModule } from './ui/ui.module';
 import { ExamplesComponent } from './examples/examples.component';
 import { AppRoutingModule, routedComponents } from './app.routing';
@@ -21,6 +23,8 @@ import { FormsExplainedModule } from './forms';
     UiModule,
     BrowserModule,
     FormsModule,
+    LoginModule,
+    CoreModule.forRoot(),
     HttpModule,
     FormsExplainedModule,
     ExamplesModule,
