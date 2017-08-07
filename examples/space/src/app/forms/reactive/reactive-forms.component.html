@@ -1,0 +1,39 @@
+<h1>Reactive Forms</h1>
+
+<p>With reactive forms, you create a tree of Angular form control objects in the component class and bind them to native <strong>form control elements</strong> in the component template.</p>
+
+<p class="sp-highlight">One advantage of working with form control objects directly is that value and validity updates are always synchronous and under your control. </p>
+
+<p>In keeping with the reactive paradigm, the component preserves the immutability of the data model, treating it as a pure source of original values. Rather than update the data model directly, the component extracts user changes and forwards them to an external component or service, which does something with them (such as saving them) and returns a new data model to the component that reflects the updated model state.</p>
+
+<p>In reactive forms, you create the entire form control tree in code. You can immediately update a value or drill down through the descendents of the parent form because all controls are always available.</p>
+
+<ul>
+<li><strong>AbstractControl</strong> is the abstract base class for the three concrete form control classes: FormControl, FormGroup, and FormArray. It provides their common behaviors and properties, some of which are observable.</li>
+<li><strong>FormControl</strong> tracks the value and validity status of an individual form control. It corresponds to an HTML form control such as an input box or selector.</li>
+<li><strong>FormGroup</strong> tracks the value and validity state of a group of AbstractControl instances. The group's properties include its child controls. The top-level form in your component is a FormGroup.</li>
+<li><strong>FormArray</strong> tracks the value and validity state of a numerically indexed array of AbstractControl instances.</li>
+</ul>
+
+<p>Form Control Properties (AbstractControl API reference): </p>
+
+<ul>
+  <li>
+    <strong>myControl.value</strong> the value of a FormControl.
+  </li>
+  <li>
+    <strong>myControl.status</strong> the validity of a FormControl. Possible values: VALID, INVALID, PENDING, or DISABLED.
+  </li>
+  <li>
+    <strong>myControl.pristine</strong> true if the user has not changed the value in the UI. Its opposite is myControl.dirty.
+  </li>
+  <li>
+    <strong>myControl.untouched</strong> true if the control user has not yet entered the HTML control and triggered its blur event. Its opposite is myControl.touched.
+  </li>
+</ul>
+
+<hr>
+
+<h2>Examples</h2>
+
+<sp-hero-detail></sp-hero-detail>
