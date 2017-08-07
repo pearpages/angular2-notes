@@ -23,6 +23,9 @@ import { states, makeAddress } from './reactive.models';
   <hr>
 
   <fieldset class="colleagueForm" [formGroup]="colleague">
+  <button (click)="setPeresValues()" class="btn btn-default">Set Pere's values</button>
+  <button (click)="patchAddressWithPeresValues()" class="btn btn-default">Patch Address with Pere's values</button>
+  <button (click)="colleague.reset()" class="btn btn-default">Reset</button>
   <div class="form-group">Name:
     <input class="form-control" formControlName="name">
   </div>
@@ -80,6 +83,7 @@ export class HeroDetailComponent {
   colleague: FormGroup;
 
   constructor(private fb: FormBuilder) {
+    this.heroForm = this.createHeroForm();
     this.colleague = this.createColleagueForm();
   }
 
@@ -101,6 +105,32 @@ export class HeroDetailComponent {
     return new FormGroup({
       name: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required)
+    });
+  }
+
+  setPeresValues(): void {
+    this.colleague.setValue({
+      name: 'Pere',
+      lastName: 'Pages',
+      address: {
+        street: 'Ronda Sant Pere, 3',
+        city: 'Barcelona',
+        state: 'Barcelona',
+        zip: '08003'
+      },
+      power: 'Dunno',
+      sidekick: 'Robin' }
+    );
+  }
+
+  patchAddressWithPeresValues(): void {
+    this.colleague.patchValue({
+      address: {
+        street: 'Ronda Sant Pere, 3',
+        city: 'Barcelona',
+        state: 'Barcelona',
+        zip: '08003'
+      }
     });
   }
 }
