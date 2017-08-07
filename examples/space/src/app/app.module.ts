@@ -23,7 +23,7 @@ import { FormsExplainedModule } from './forms';
     UiModule,
     BrowserModule,
     FormsModule,
-    LoginModule,
+    LoginModule.forRoot(),
     CoreModule.forRoot(),
     HttpModule,
     FormsExplainedModule,

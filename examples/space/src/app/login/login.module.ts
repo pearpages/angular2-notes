@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginFormComponent } from './login.form.component';
+import { LoginService } from './login.service';
 
 @NgModule({
   imports: [
@@ -15,4 +16,11 @@ import { LoginFormComponent } from './login.form.component';
   ],
   providers: [],
 })
-export class LoginModule { }
+export class LoginModule {
+  static forRoot() {
+    return {
+      ngModule: LoginModule,
+      providers: [ LoginService ]
+    };
+  }
+}

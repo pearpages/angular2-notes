@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AppGuard } from './../app.guard';
 import { StructuralDirectivesExample } from './directives/structural/structural-directives-example.component';
 import { AttributeExamplesComponent } from './directives/attribute/attribute-examples.component';
 import { BannerExampleComponent } from './dynamic-components/banner-example.component';
@@ -12,7 +13,10 @@ import { CommunicationComponent } from './communication/communication.component'
 
 const routes: Routes = [
   {
-    path: 'examples', component: ExamplesComponent, children: [
+    path: 'examples',
+    component: ExamplesComponent,
+    canActivate: [AppGuard],
+    children: [
       { path: 'pipes', component: PipesExampleComponent },
       { path: 'host', component: HostExamplesComponent },
       { path: 'dynamic-components', component: BannerExampleComponent },

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { LoginPageComponent } from './login-page.component';
+import { AppGuard } from './app.guard';
 import { ExamplesComponent } from './examples/examples.component';
 
 const routes: Routes = [
@@ -12,7 +13,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)]
+  imports: [RouterModule.forRoot(routes)],
+  providers: [
+    AppGuard
+  ]
 })
 export class AppRoutingModule { }
 
