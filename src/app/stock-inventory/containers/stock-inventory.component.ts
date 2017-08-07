@@ -3,6 +3,16 @@ import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
 
 import { Product, Stock } from './../models/product.interface';
 
+const products = [
+  {id: 1, price: 2800, name: 'MacBook Pro'},
+  {id: 2, price: 50, name: 'USB-C Adaptor'},
+  {id: 3, price: 400, name: 'iPod'},
+  {id: 4, price: 900, name: 'iPhone'},
+  {id: 5, price: 600, name: 'Apple Watch'},
+];
+
+const mappedProducts = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],['2',{id: 2, price: 50, name: 'USB-C Adaptor'}],['3',{id: 3, price: 400, name: 'iPod'}],['4',{id: 4, price: 900, name: 'iPhone'}],['5',{id: 5, price: 600, name: 'Apple Watch'}]]);
+
 @Component({
   selector: 'no-stock-inventory',
   template: `
@@ -47,15 +57,8 @@ import { Product, Stock } from './../models/product.interface';
 
 export class StockInventoryComponent implements OnInit{
   total: number;
-  products: Product[] = [
-    {id: 1, price: 2800, name: 'MacBook Pro'},
-    {id: 2, price: 50, name: 'USB-C Adaptor'},
-    {id: 3, price: 400, name: 'iPod'},
-    {id: 4, price: 900, name: 'iPhone'},
-    {id: 5, price: 600, name: 'Apple Watch'},
-  ];
-  productMap: Map<string, Product> = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],['2',{id: 2, price: 50, name: 'USB-C Adaptor'}],['3',{id: 3, price: 400, name: 'iPod'}],['4',{id: 4, price: 900, name: 'iPhone'}],['5',{id: 5, price: 600, name: 'Apple Watch'}]]);
-
+  products: Product[] = products;
+  productMap: Map<string, Product> = mappedProducts;
   constructor(private formBuilder: FormBuilder) {}
 
   form = this.formBuilder.group({
