@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { LoginService } from '@space/login';
 
 @Component({
   selector: 'sp-navigation',
@@ -7,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
     <a routerLink="examples" routerLinkActive="sp-active">Examples</a>
     <a routerLink="css" routerLinkActive="sp-active">CSS</a>
     <a routerLink="forms" routerLinkActive="sp-active">Forms</a>
+    <span *ngIf="loginService.isLogged()" (click)="logout()">Logout</span>
   </nav>
   `
 })
 
-export class NavigationComponent implements OnInit {
-  constructor() { }
+export class NavigationComponent {
+  constructor(public loginService: LoginService) { }
 
-  ngOnInit() { }
+  logout() {
+    this.loginService.logout();
+  }
 }

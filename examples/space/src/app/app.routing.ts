@@ -16,7 +16,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   providers: [
     AppGuard
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
 
