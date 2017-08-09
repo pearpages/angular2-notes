@@ -25,6 +25,9 @@ import { Product, Stock } from './../models/product.interface';
         type="button"
         (click)="onAdd()"
         >Add stock</button>
+
+      <button type="button" (click)="patch()">Patch</button>
+      <button type="button" (click)="set()">Set</button>
     </div>
   </div>
   `,
@@ -39,9 +42,23 @@ export class StockSelectorComponent {
 
   onAdd() {
     this.added.emit(this.parent.get('selector').value);
+    // When resetting we also reset the html classes
     this.parent.get('selector').reset({ // Reset <--
       product_id: '',
       quantity: 10
+    });
+  }
+
+  patch() {
+    this.parent.get('selector').patchValue({
+      product_id: ''
+    });
+  }
+
+  set() {
+    this.parent.get('selector').setValue({
+      product_id: '14',
+      quantity: 100
     });
   }
 }
