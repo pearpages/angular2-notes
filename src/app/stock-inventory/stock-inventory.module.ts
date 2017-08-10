@@ -6,13 +6,15 @@ import { StockInventoryComponent } from './containers/stock-inventory.component'
 import { StockSelectorComponent } from './components/stock-selector.component';
 import { StockProductsComponent } from './components/stock-products.component';
 import { StockBranchComponent } from './components/stock-branch.component';
+import { StockCounterComponent } from './components/stock-counter.component';
 
 @NgModule({
   declarations: [
     StockInventoryComponent,
     StockBranchComponent,
     StockProductsComponent,
-    StockSelectorComponent
+    StockSelectorComponent,
+    StockCounterComponent
   ],
   imports: [
     CommonModule,

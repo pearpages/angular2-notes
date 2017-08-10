@@ -1,6 +1,3 @@
-# Custom form control base
-
-```typescript
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -39,5 +36,3 @@ export class StockCounterComponent {
     }
   }
 }
-
-```
