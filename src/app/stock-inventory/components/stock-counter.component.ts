@@ -11,26 +11,30 @@ const COUNTER_CONTROL_ACCESSOR = {
   selector: 'no-stock-counter',
   providers: [COUNTER_CONTROL_ACCESSOR],
   template: `
-  <div class="no-stock-counter">
-    <div>
+    <div class="no-stock-counter" [class.no-stoc-counter--focused]="focus">
       <div>
-        <div>{{ value }}</div>
-        <div>
-          <button [disabled]="value == max" type="button" (click)="increment()">+</button>
-          <button [disabled]="value == min"type="button" (click)="decrement()">-</button>
+        <div
+          tabindex="0"
+          (keydown)="onKeyDown($event)"
+          (blur)="onBlur($event)"
+          (focus)="onFocus($event)">
+          <p>{{ value }}</p>
+          <div>
+            <button [disabled]="value == max" type="button" (click)="increment()">+</button>
+            <button [disabled]="value == min"type="button" (click)="decrement()">-</button>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  `
+    </div>`
 })
 
-export class StockCounterComponent implements ControlValueAccessor{
+export class StockCounterComponent implements ControlValueAccessor {
   @Input() step = 10;
   @Input() min = 10;
   @Input() max = 1000;
 
   value = 10;
+  focus: boolean;
 
   private onTouch: Function;
   private onModelChange: Function;
@@ -50,7 +54,7 @@ export class StockCounterComponent implements ControlValueAccessor{
       this.value += this.step;
       this.onModelChange(this.value);
     }
-   this.onTouch();
+    this.onTouch();
   }
 
   decrement() {
@@ -58,6 +62,34 @@ export class StockCounterComponent implements ControlValueAccessor{
       this.value -= this.step;
       this.onModelChange(this.value);
     }
+    this.onTouch();
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    const handlers = {
+      ArrowDown: () => this.decrement(),
+      ArrowUp: () => this.increment()
+    }
+
+    if (handlers[event.code]) {
+      handlers[event.code]();
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    this.onTouch();
+  }
+
+  onFocus(event: FocusEvent) {
+    this.focus = true;
+    event.preventDefault();
+    event.stopPropagation();
+    this.onTouch();
+  }
+
+  onBlur(event: FocusEvent) {
+    this.focus = false;
+    event.preventDefault();
+    event.stopPropagation();
     this.onTouch();
   }
 }
