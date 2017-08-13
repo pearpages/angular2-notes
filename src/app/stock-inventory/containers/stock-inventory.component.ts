@@ -52,6 +52,14 @@ const mappedProducts = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],
   </div>
   `,
   styles: [`
+  .no-stock-inventory {
+    max-width: 600px;
+    padding: 40px;
+    border: 1px dotted #ccc;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: auto;
+  }
   `]
 })
 
