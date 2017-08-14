@@ -25,6 +25,12 @@ import { Stock, Product } from '../models/product.interface';
   </div>
   `,
   styles: [`
+  .stock-product__content {
+    display: flex;
+  }
+  .stock-product__name, .stock-product__price {
+    display: inline-flex;
+  }
   `]
 })
 
