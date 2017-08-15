@@ -30,6 +30,7 @@ import { Stock, Product } from '../models/product.interface';
   }
   .stock-product__name, .stock-product__price {
     display: inline-flex;
+    width: 25%;
   }
   `]
 })
