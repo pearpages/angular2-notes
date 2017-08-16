@@ -37,7 +37,10 @@ const mappedProducts = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],
       >
       </no-stock-products>
 
-      <div>Total: {{total | currency: 'USD': 'symbol'}}</div>
+      <div class="no-stock-inventory__total">
+        <div class="no-stock-inventory__label">Total: </div>
+        <div class="no-stock-inventory__value">{{total | currency: 'USD': 'symbol'}}</div>
+      </div>
 
       <div class="no-stock-inventory__buttons">
         <button
@@ -59,6 +62,12 @@ const mappedProducts = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],
     background-color: #ddd;
     border-radius: 10px;
     margin: auto;
+  }
+  .no-stock-inventory__total {
+    display: flex;
+  }
+  .no-stock-inventory__label, .no-stock-inventory__value {
+    width: 25%;
   }
   `]
 })
