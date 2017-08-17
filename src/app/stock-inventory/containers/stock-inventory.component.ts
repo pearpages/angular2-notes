@@ -49,7 +49,12 @@ const mappedProducts = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],
         >Order stock</button>
       </div>
 
-      <pre>{{ form.value | json }}</pre>
+      <hr>
+
+      <div>
+        <h4>Form DataModel</h4>
+        <pre>{{ form.value | json }}</pre>
+      </div>
 
     </form>
   </div>
