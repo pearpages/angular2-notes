@@ -11,21 +11,34 @@ const COUNTER_CONTROL_ACCESSOR = {
   selector: 'no-stock-counter',
   providers: [COUNTER_CONTROL_ACCESSOR],
   template: `
-    <div class="no-stock-counter" [class.no-stoc-counter--focused]="focus">
-      <div>
-        <div
-          tabindex="0"
-          (keydown)="onKeyDown($event)"
-          (blur)="onBlur($event)"
-          (focus)="onFocus($event)">
-          <p>{{ value }}</p>
-          <div>
-            <button [disabled]="value == max" type="button" (click)="increment()">+</button>
-            <button [disabled]="value == min"type="button" (click)="decrement()">-</button>
-          </div>
-        </div>
+    <div
+      class="no-stock-counter"
+      [class.no-stoc-counter--focused]="focus"
+      tabindex="0"
+      (keydown)="onKeyDown($event)"
+      (blur)="onBlur($event)"
+      (focus)="onFocus($event)">
+      <div class="no-stock-counter__value">{{ value }}</div>
+      <div class="no-stock-counter__buttons">
+        <button [disabled]="value == max" type="button" (click)="increment()">+</button>
+        <button [disabled]="value == min"type="button" (click)="decrement()">-</button>
       </div>
-    </div>`
+    </div>`,
+  styles: [`
+  .no-stock-counter {
+    border: 1px solid grey;
+    display: flex;
+    padding-right: 10px;
+    max-width: 100px;
+    justify-content: center;
+  }
+  .no-stock-counter__value {
+    margin-right: 10px;
+  }
+  .no-stock-counter__value, .no-stock-counter__buttons {
+    display: inline-flex;
+  }
+  `]
 })
 
 export class StockCounterComponent implements ControlValueAccessor {
