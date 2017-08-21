@@ -7,7 +7,9 @@ import { Product, Stock } from './../models/product.interface';
   selector: 'no-stock-selector',
   template: `
   <div class="no-stock-selector" [formGroup]="parent">
-    <div formGroupName="selector">
+    <h4>Selector</h4>
+
+    <div class="no-stock-selector__selector"formGroupName="selector">
       <select formControlName="product_id">
         <option value="">Select stock</option>
         <option *ngFor="let product of products"
@@ -15,23 +17,34 @@ import { Product, Stock } from './../models/product.interface';
         >{{product.name}}
         </option>
       </select>
+
       <no-stock-counter
         [step]="10"
         [min]="10"
         [max]="1000"
         formControlName="quantity"
-      ></no-stock-counter>
-      <button
-        type="button"
-        (click)="onAdd()"
-        >Add stock</button>
+      >
+      </no-stock-counter>
 
-      <button type="button" (click)="patch()">Patch</button>
-      <button type="button" (click)="set()">Set</button>
+      <div class="no-stock-selector__buttons">
+        <button
+          type="button"
+          (click)="onAdd()"
+          >Add stock</button>
+        <button type="button" (click)="patch()">Patch</button>
+        <button type="button" (click)="set()">Set</button>
+      </div>
+
     </div>
+
   </div>
   `,
   styles: [`
+  .no-stock-selector__selector {
+    display: flex;
+  }
+  .no-stock-selector__selector > * {
+    display: inline-flex;
   `]
 })
 
