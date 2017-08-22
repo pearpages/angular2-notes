@@ -7,7 +7,7 @@ import { Stock, Product } from '../models/product.interface';
   selector: 'no-stock-products',
   template: `
   <div class="no-stock-products" [formGroup]="parent">
-    <h4>Stock</h4>
+    <h4>Products</h4>
     <div formArrayName="stock">
       <div *ngFor="let item of stocks; let i = index;">
 

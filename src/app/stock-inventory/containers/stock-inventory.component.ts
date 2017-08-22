@@ -17,6 +17,7 @@ const mappedProducts = new Map([['1',{id: 1, price: 2800, name: 'MacBook Pro'}],
   selector: 'no-stock-inventory',
   template: `
   <div class="no-stock-inventory">
+    <h2>Form</h2>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <no-stock-branch
