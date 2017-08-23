@@ -45,6 +45,7 @@ import { Product, Stock } from './../models/product.interface';
   }
   .no-stock-selector__selector > * {
     display: inline-flex;
+  }
   `]
 })
 
