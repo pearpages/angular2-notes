@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 
 import { Product, Stock } from './../models/product.interface';
 
@@ -86,8 +86,8 @@ export class StockInventoryComponent implements OnInit{
 
   form = this.formBuilder.group({
     store: this.formBuilder.group({
-      branch: 'B182', // <-- default value
-      code: '1234'
+      branch: ['B182', Validators.required],
+      code: ['1234', Validators.compose([Validators.required, Validators.minLength(4)])]
     }),
     selector: this.createStock(),
     stock: this.formBuilder.array([
