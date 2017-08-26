@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 
 import { Product, Stock } from './../models/product.interface';
+import { StockValidators } from '../validators/stock-inventory.validators';
 
 const products = [
   {id: 1, price: 2800, name: 'MacBook Pro'},
@@ -86,8 +87,8 @@ export class StockInventoryComponent implements OnInit{
 
   form = this.formBuilder.group({
     store: this.formBuilder.group({
-      branch: ['B182', Validators.required],
-      code: ['1234', Validators.compose([Validators.required, Validators.minLength(4)])]
+      branch: ['B182', [Validators.required, StockValidators.checkBranch]],
+      code: ['1234', [Validators.required, Validators.minLength(4)]]
     }),
     selector: this.createStock(),
     stock: this.formBuilder.array([

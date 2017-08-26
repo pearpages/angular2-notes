@@ -18,6 +18,9 @@ import { FormGroup } from '@angular/forms';
       <span *ngIf="isRequired('branch')">
         Branch ID is rquired
       </span>
+      <span *ngIf="isNotValidBranch('branch')">
+        must start with 1 letter and have 3 numbers
+      </span>
 
       <br/>
 
@@ -30,6 +33,9 @@ import { FormGroup } from '@angular/forms';
       >
       <span *ngIf="isRequired('code')">
         Manager ID is required
+      </span>
+      <span *ngIf="hasMinLength('code')">
+        Length 4
       </span>
     </div>
 
@@ -51,5 +57,13 @@ export class StockBranchComponent {
 
   isRequired(name: string): boolean {
     return (this.parent.get(`store.${name}`).hasError('required') && this.parent.get(`store.${name}`).touched);
+  }
+
+  hasMinLength(name: string): boolean {
+    return (this.parent.get(`store.${name}`).hasError('minlength') && this.parent.get(`store.${name}`).touched);
+  }
+
+  isNotValidBranch(name: string) {
+    return (this.parent.get(`store.${name}`).hasError('invalidbranch') && this.parent.get(`store.${name}`).dirty);
   }
 }

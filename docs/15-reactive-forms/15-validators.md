@@ -9,7 +9,7 @@ import { Validators } from '@angular/forms';
   form = this.formBuilder.group({
     store: this.formBuilder.group({
       branch: ['B182', Validators.required], // <--
-      code: ['1234', Validators.compose([Validators.required, Validators.minLength(4)])] // <--
+      code: ['1234', [Validators.required, Validators.minLength(4)]] // <--
     }),
     selector: this.createStock(),
     stock: this.formBuilder.array([
@@ -20,9 +20,9 @@ import { Validators } from '@angular/forms';
 ```
 
 ```html
-      <span *ngIf="isRequired('branch')">
-        Branch ID is rquired
-      </span>
+<span *ngIf="isRequired('branch')">
+  Branch ID is rquired
+</span>
 ```
 
 ```typescript
@@ -34,5 +34,4 @@ export class StockBranchComponent {
     return (this.parent.get(`store.${name}`).hasError('required') && this.parent.get(`store.${name}`).touched);
   }
 }
-
 ```
