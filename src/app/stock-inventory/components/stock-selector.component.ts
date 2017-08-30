@@ -29,10 +29,12 @@ import { Product, Stock } from './../models/product.interface';
       <div class="no-stock-selector__buttons">
         <button
           type="button"
+          [disabled] = "hasStock || !isSelected"
           (click)="onAdd()"
           >Add stock</button>
-        <button type="button" (click)="patch()">Patch</button>
-        <button type="button" (click)="set()">Set</button>
+        <!-- <button type="button" (click)="patch()">Patch</button>
+        <button type="button" (click)="set()">Set</button> -->
+        <div class="no-stock-selector__error" *ngIf="hasStock">Item already exists in the stock</div>
       </div>
 
     </div>
@@ -45,6 +47,9 @@ import { Product, Stock } from './../models/product.interface';
   }
   .no-stock-selector__selector > * {
     display: inline-flex;
+  }
+  .no-stock-selector__error {
+
   }
   `]
 })
@@ -61,6 +66,15 @@ export class StockSelectorComponent {
       product_id: '',
       quantity: 10
     });
+  }
+
+  get hasStock() {
+    return this.parent.hasError('stockexists')
+    && this.parent.get('selector.product_id').dirty;
+  }
+
+  isSelected() {
+    return (!this.parent.get('selector.product_id').value)
   }
 
   patch() {
